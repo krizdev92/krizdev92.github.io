@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Caveat:wght@400;500;600&family=Dancing+Script:wght@400..700&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* app.css */
+:root {
+  /* Functional Palette Tokens */
+  --color-primary: #751600;       /* Base Dark Mocha */
+  --color-secondary: #196285;     /* Deep Forest Green */
+  --color-accent: #F6BD03;        /* Cinematic Gold */
+  
+  /* Background/Surface Tokens */
+  --color-surface-sun: #F9F8F6;    /* Warm Off-White (Primary Light) */
+  --color-surface-mocha: #ac6c41; /* Light Brown (Secondary Light) */
+  --color-surface-green: #549227; /* Light Green (Minimal Use) */
+  
+  /* Text Tokens (The Warm Charcoals) */
+  --color-text-primary: #2A2421;  /* Headings & High Emphasis */
+  --color-text-secondary: #4A433F;/* Muted Body & Descriptive Text */
+  --color-text-tertiary: #7A736E; /* Disabled, Meta, & Very Muted Text */
+  
+  /* Interaction & State Tokens */
+  --color-hover-accent: #FFF9E0;  /* 10% opacity Gold */
+  --color-border-primary: rgba(196, 117, 82, 0.2); /* Muted Accent */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
