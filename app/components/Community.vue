@@ -52,7 +52,6 @@ const communityData = {
     { id: 22, name: 'Tessy', role: 'Educator', location: 'Ernakulam, Kerala', desc: 'Tessy bridges the gap between travelers and locals, offering immersive lessons in regional customs.', img: '/images/home/stay-3.jpg', url: '/community/tessy' },
     { id: 23, name: 'Arun', role: 'Navigator', location: 'Kavalam, Kerala', desc: 'Steering traditional wooden kettuvallams, Arun knows every hidden canal and bird sanctuary in the wetlands.', img: '/images/home/stay-4.jpg', url: '/community/arun' },
     { id: 24, name: 'Sneha', role: 'Mural Painter', location: 'Pathanamthitta, Kerala', desc: 'Using natural pigments, Sneha paints stunning, complex temple murals that preserve mythological histories.', img: '/images/home/blog-1.jpeg', url: '/community/sneha' },
-    { id: 25, name: 'Kurian', role: 'Conservator', location: 'Thalassery, Kerala', desc: 'Dedicated to preserving historic homesteads, Kurian restores ancient architecture to its original glory.', img: '/images/home/blog-2.webp', url: '/community/kurian' }
   ],
   bottomCta: {
     text: 'Explore the Network',
@@ -64,19 +63,19 @@ const communityData = {
 // --- Matrix Chunking for Responsive Layouts ---
 const desktopRows = computed(() => [
   communityData.members.slice(0, 8),
-  communityData.members.slice(8, 17),
-  communityData.members.slice(17, 25)
+  communityData.members.slice(8, 16),
+  communityData.members.slice(16, 24)
 ])
 
-const tabletRows = computed(() => [
-  communityData.members.slice(0, 13),
-  communityData.members.slice(13, 25)
-])
+// const tabletRows = computed(() => [
+//   communityData.members.slice(0, 13),
+//   communityData.members.slice(13, 25)
+// ])
 
 const mobileRows = computed(() => [
-  communityData.members.slice(0, 9),
-  communityData.members.slice(9, 17),
-  communityData.members.slice(17, 25)
+  communityData.members.slice(0, 8),
+  communityData.members.slice(8, 16),
+  communityData.members.slice(16, 24)
 ])
 
 onMounted(() => {
@@ -128,14 +127,8 @@ onMounted(() => {
           style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;"
         >
           <span class="font-normal">{{ communityData.header.titleMain }}</span><br />
-          <span class="font-normal leading-normal text-[#196285] italic capitalize">{{ communityData.header.titleItalic }}</span>
+          <span class="font-normal leading-tight text-[#673b1c] italic capitalize">{{ communityData.header.titleItalic }}</span>
         </h4>
-
-        <div class="community-header-elem flex items-center justify-center gap-5 mb-6 w-full max-w-[200px] md:max-w-[280px]">
-          <span class="h-[1px] flex-grow bg-[#1A1A1A]/20"></span>
-          <img :src="communityData.header.decorationImage" alt="Decoration" class="w-[14px] h-[14px] md:w-[18px] md:h-[18px] opacity-60 brightness-0 pointer-events-none" />
-          <span class="h-[1px] flex-grow bg-[#1A1A1A]/20"></span>
-        </div>
 
         <p class="community-header-elem font-sans text-sm md:text-base lg:text-[15px] leading-[1.8] text-[#1A1A1A]/80 font-light max-w-xl">
           {{ communityData.header.intro }}
@@ -144,23 +137,22 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- ================= 1. DESKTOP HONEYCOMB GRID (>1024px) ================= -->
-    <div class="hidden lg:flex w-full flex-col items-center justify-center px-4 mb-8">
+    <!-- ================= 1. DESKTOP HONEYCOMB GRID (>1280px) ================= -->
+    <div class="hidden xl:flex w-full flex-col items-center justify-center px-4 mb-8">
       <div 
         v-for="(row, rIdx) in desktopRows" 
         :key="`d-row-${rIdx}`" 
-        class="flex items-center justify-center gap-10"
+        class="flex items-center justify-center gap-8 py-5"
         :class="{ '-mt-2': rIdx !== 0 }"
       >
-        <!-- Decreased negative margin from -mt-12 to -mt-2 to significantly increase vertical row spacing -->
         <div 
           v-for="member in row" 
           :key="`d-mem-${member.id}`" 
-          class="community-node-elem relative w-[150px] h-[150px] flex items-center justify-center cursor-pointer group"
+          class="community-node-elem relative w-[8rem] h-[8rem] flex items-center justify-center cursor-pointer group"
           @click="openModal(member)"
         >
           <!-- Precisely calculated concentric SVG Arc Text -->
-          <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full pointer-events-none group-hover:-rotate-6 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
+          <svg viewBox="0 0 100 100" class="absolute -inset-y-2 w-full h-full pointer-events-none group-hover:-rotate-6 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
             <path :id="`arc-d-${member.id}`" d="M 8.6 65 A 44 44 0 1 1 91.4 65" fill="transparent" />
             <text fill="#1A1A1A">
               <textPath :href="`#arc-d-${member.id}`" startOffset="50%" text-anchor="middle" class="text-[6.5px] font-bold tracking-[0.15em] uppercase font-sans">
@@ -171,23 +163,23 @@ onMounted(() => {
           <!-- Avatar Image -->
           <div class="w-[110px] h-[110px] rounded-full overflow-hidden border-2 border-[#F9F8F6] shadow-sm group-hover:shadow-lg transition-shadow duration-300 relative z-10">
             <img :src="member.img" :alt="member.name" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
-            <div class="absolute inset-0 bg-[#196285]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="absolute inset-0 bg-[#673b1c]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- ================= 2. TABLET SWIPE ROWS (768px - 1024px) ================= -->
-    <div class="hidden md:flex lg:hidden w-full flex-col gap-4 overflow-hidden mb-8">
+    <!-- <div class="hidden 2xl:hidden w-full flex-col gap-4 overflow-hidden mb-8">
       <div 
         v-for="(row, rIdx) in tabletRows" 
         :key="`t-row-${rIdx}`" 
-        class="flex w-full overflow-x-auto hide-scrollbar snap-x snap-mandatory px-8 gap-5 py-2"
+        class="flex w-full overflow-x-auto hide-scrollbar snap-x snap-mandatory px-12 gap-5 py-2"
       >
         <div 
           v-for="member in row" 
           :key="`t-mem-${member.id}`" 
-          class="community-node-elem relative w-[130px] h-[130px] shrink-0 snap-center flex items-center justify-center cursor-pointer group"
+          class="community-node-elem relative w-[7.7rem] h-[7.7rem] shrink-0 snap-center flex items-center justify-center cursor-pointer group"
           @click="openModal(member)"
         >
           <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full pointer-events-none group-hover:-rotate-6 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]">
@@ -203,19 +195,19 @@ onMounted(() => {
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <!-- ================= 3. MOBILE SWIPE ROWS (<768px) ================= -->
-    <div class="flex md:hidden w-full flex-col gap-2 overflow-hidden mb-8">
+    <!-- ================= 3. MOBILE SWIPE ROWS (<1280px) ================= -->
+    <div class="flex xl:hidden w-full flex-col gap-2 overflow-hidden mb-8">
       <div 
         v-for="(row, rIdx) in mobileRows" 
         :key="`m-row-${rIdx}`" 
-        class="flex w-full overflow-x-auto hide-scrollbar snap-x snap-mandatory px-4 gap-3 py-2"
+        class="flex w-full overflow-x-auto hide-scrollbar snap-x snap-mandatory px-3 gap-2 py-1"
       >
         <div 
           v-for="member in row" 
           :key="`m-mem-${member.id}`" 
-          class="community-node-elem relative w-[140px] h-[140px] shrink-0 snap-center flex items-center justify-center cursor-pointer active:scale-95 transition-transform"
+          class="community-node-elem relative w-[8rem] h-[8rem] shrink-0 snap-center flex items-center justify-center cursor-pointer active:scale-95 transition-transform"
           @click="openModal(member)"
         >
           <svg viewBox="0 0 100 100" class="absolute inset-0 w-full h-full pointer-events-none transition-transform duration-700">
@@ -235,21 +227,12 @@ onMounted(() => {
 
     <!-- ================= CTA & SCROLL INDICATOR ================= -->
     <div class="w-full mt-3 md:mt-5 pt-2 flex flex-col items-center gap-8 md:gap-10 relative z-20 community-cta-elem">
-      
-      <NuxtLink :to="communityData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#196285] transition-colors duration-500 overflow-hidden rounded-sm bg-transparent">
-        <div class="absolute inset-0 bg-[#196285] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
-        <img :src="communityData.bottomCta.icon" alt="Icon" class="w-4 h-4 md:w-5 md:h-5 opacity-70 brightness-0 transition-all duration-500 relative z-10 group-hover:invert group-hover:opacity-100" />
-        <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#1A1A1A] group-hover:text-white transition-colors duration-500 relative z-10 uppercase">
-          {{ communityData.bottomCta.text }}
-        </span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="relative z-10 text-[#1A1A1A] group-hover:text-white transform transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-1"><path d="M5 12H19M19 12L12 5M19 12L12 19"/></svg>
-      </NuxtLink>
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-[1px] h-10 md:h-12 bg-[#196285]/20 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-full bg-[#196285] animate-scroll-drop"></div>
+        <div class="w-[1px] h-10 md:h-12 bg-[#673b1c]/20 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full bg-[#673b1c] animate-scroll-drop"></div>
         </div>
-        <div class="w-1.5 h-1.5 rounded-full bg-[#196285]"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#673b1c]"></div>
       </div>
     </div>
 
@@ -262,54 +245,48 @@ onMounted(() => {
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <div v-if="activeMember" class="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-[#1A1A1A]/80 backdrop-blur-sm" @click.self="closeModal">
+      <div v-if="activeMember" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-10 md:p-6 bg-[#1A1A1A]/80 backdrop-blur-sm overflow-hidden" @click.self="closeModal">
         
-        <!-- Modal Card Container -->
-        <div class="relative w-full max-w-2xl bg-[#F9F8F6] rounded-xl md:rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row transform transition-transform duration-500">
+        <!-- Modal Card Container (With Max Height + Scrollbar Enablement) -->
+        <div class="relative w-full max-w-2xl lg:max-w-4xl bg-[#F9F8F6] rounded-xl md:rounded-2xl overflow-y-auto max-h-[90vh] shadow-2xl flex flex-col md:flex-row transform transition-transform duration-500 custom-modal-scroll">
           
-          <!-- Top Right Close Button -->
-          <button @click="closeModal" class="absolute top-4 right-4 md:top-6 md:right-6 w-8 h-8 flex items-center justify-center bg-[#6a6a6a]/30 hover:bg-[#6a6a6a]/50 rounded-full transition-colors z-20">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 text-[#1A1A1A]"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+          <!-- Absolute Top Right Close Button -->
+          <button @click="closeModal" class="absolute top-4 right-4 md:top-6 md:right-6 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#1a1a1a]/20 md:bg-[#1A1A1A]/20 hover:bg-[#1A1A1A]/40 backdrop-blur-md rounded-full transition-colors z-50 shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4 md:w-5 md:h-5 text-[#1A1A1A]"><path d="M18 6L6 18M6 6l12 12"></path></svg>
           </button>
 
-          <!-- Image Section -->
-          <div class="relative w-full md:w-5/12 h-64 md:h-auto overflow-hidden shrink-0 bg-slate-200">
-            <img :src="activeMember.img" :alt="activeMember.name" class="w-full h-full object-cover" />
+          <!-- STRICT 1:1 SQUARE IMAGE CONTAINER -->
+          <div class="relative w-full md:w-[45%] aspect-square shrink-0 overflow-hidden bg-slate-200">
+            <img :src="activeMember.img" :alt="activeMember.name" class="absolute inset-0 w-full h-full object-cover" />
           </div>
 
           <!-- Content Section -->
-          <div class="flex flex-col p-8 md:p-10 lg:p-12 w-full flex-grow">
+          <div class="flex flex-col p-6 md:p-8 lg:p-12 flex-1 justify-center relative">
             <!-- Header Group -->
-            <div class="flex flex-col gap-1 mb-6 border-b border-[#1A1A1A]/10 pb-6 pr-6">
-              <h3 class="text-2xl md:text-3xl text-[#1A1A1A] leading-tight" style="font-family: 'Noto Serif', serif; font-weight: 500;">
+            <div class="flex flex-col gap-1 mb-5 md:mb-6 border-b border-[#1A1A1A]/10 pb-5 md:pb-6 shrink-0">
+              <h3 class="text-2xl md:text-3xl lg:text-4xl text-[#1A1A1A] leading-tight pr-8 md:pr-12" style="font-family: 'Playfair Display', 'Noto Serif', serif; font-weight: 500;">
                 {{ activeMember.name }}
               </h3>
-              <p class="font-sans text-[10px] md:text-[11px] tracking-[0.2em] text-[#751600] uppercase font-bold">
+              <p class="font-sans text-[10px] md:text-[11px] tracking-[0.2em] text-[#673b1b] uppercase font-bold mt-1">
                 {{ activeMember.role }}
               </p>
-              <div class="flex items-center gap-1.5 mt-2">
+              <div class="flex items-center gap-2 mt-2 md:mt-3">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-[#1A1A1A]/50"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                <span class="font-sans text-[11px] md:text-[12px] text-[#1A1A1A]/60">{{ activeMember.location }}</span>
+                <span class="font-sans text-[11px] md:text-[12px] font-medium text-[#1A1A1A]/70">{{ activeMember.location }}</span>
               </div>
             </div>
 
             <!-- Description -->
-            <p class="font-sans text-[13px] md:text-sm text-[#1A1A1A]/80 font-light leading-[1.8] mb-8 flex-grow">
+            <p class="font-sans text-[13px] md:text-sm lg:text-[15px] text-[#1A1A1A]/90 font-normal leading-[1.8] mb-0 flex-grow">
               {{ activeMember.desc }}
             </p>
-
-            <!-- Standardized View Profile Button -->
-            <NuxtLink :to="activeMember.url" @click="closeModal" class="group/btn relative inline-flex items-center gap-2.5 px-6 py-3 border border-[#1A1A1A]/20 bg-transparent hover:bg-[#751600] hover:border-[#751600] transition-colors duration-500 rounded-sm overflow-hidden w-fit mt-auto">
-              <span class="text-[9px] md:text-[10px] font-sans tracking-[0.2em] text-[#1A1A1A] group-hover/btn:text-[#F9F8F6] font-bold uppercase transition-colors duration-500 relative z-10">
-                View Profile
-              </span>
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 transform transition-transform duration-500 stroke-[#1A1A1A] group-hover/btn:stroke-[#F9F8F6] group-hover/btn:translate-x-1 relative z-10"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-            </NuxtLink>
           </div>
+
         </div>
 
       </div>
     </transition>
+
 
   </section>
 </template>
@@ -332,5 +309,21 @@ onMounted(() => {
 }
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome/Safari/Webkit */
+}
+
+/* Sleek, Brand-Matching Custom Scrollbar for Landscape & Small Viewports */
+.custom-modal-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-modal-scroll::-webkit-scrollbar-track {
+  background: rgba(26, 26, 26, 0.05);
+  border-radius: 8px;
+}
+.custom-modal-scroll::-webkit-scrollbar-thumb {
+  background: rgba(26, 26, 26, 0.25);
+  border-radius: 8px;
+}
+.custom-modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(117, 22, 0, 0.6);
 }
 </style>

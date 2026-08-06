@@ -26,11 +26,12 @@ const aboutSectionData = {
       "For over a decade, I have explored the cultural landscapes of India, documenting stories, traditions, and ways of life that often remain hidden from mainstream tourism. Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, natus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, sunt blanditiis earum quod culpa obcaecati?",
       "I design immersive, luxury journeys that connect travelers with the soul of a destination—its people, heritage, and living cultures—while creating meaningful impact for the communities we visit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, animi."
     ],
-    cursiveAccent: "Travel with purpose. Impact with meaning."
+    cursiveAccent: "Pariatur voluptate omnis a quam. Cumque ut voluptate consequuntur dolores hic sint optio nobis illum placeat eius."
   },
-  cta: {
+  bottomCta: {
     text: "Discover My Story",
-    link: "/about"
+    url: "/about",
+    icon: '/images/logoart.png'
   }
 }
 
@@ -79,16 +80,16 @@ onMounted(() => {
     { y: 30, opacity: 0 },
     { y: 0, opacity: 1, stagger: 0.15, duration: 1.2, ease: 'power3.out' }
   )
-  // Left: Square Image Container
+  // Left: Square Image Container (Animation targets inner div now)
   .fromTo('.about-image-elem',
     { opacity: 0, scale: 0.95 },
     { opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out' },
     "-=0.8"
   )
-  // Right: Content & Stats
+  // Right: Content & Stats\
   .fromTo('.about-content-elem',
-    { opacity: 0, x: 30 },
-    { opacity: 1, x: 0, stagger: 0.1, duration: 1, ease: 'power3.out' },
+    { opacity: 0, y: 30 }, // <--- Changed x to y
+    { opacity: 1, y: 0, stagger: 0.1, duration: 1, ease: 'power3.out' },
     "-=0.8"
   )
   // Bottom: CTA
@@ -101,8 +102,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section ref="sectionRef" class="relative w-full pt-10 md:pt-14 pb-4 md:pb-8 bg-[#F9F8F6]/20 flex flex-col overflow-hidden">
-  <!-- <section ref="sectionRef" class="relative w-full pt-10 md:pt-14 pb-4 md:pb-8 bg-gradient-to-b from-[#c97856]/20 to-[#F9F8F6]/20 flex flex-col overflow-hidden"> -->
+  <section ref="sectionRef" class="relative w-full pt-10 md:pt-14 pb-4 md:pb-8 bg-[#F9F8F6]/20 flex flex-col">
 
     <!-- ================= PART 1: TOP CENTERED HEADER ================= -->
     <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-16 lg:px-24 flex justify-center mb-4 md:mb-6">
@@ -120,8 +120,8 @@ onMounted(() => {
           class="about-header-elem text-3xl md:text-4xl lg:text-5xl tracking-tight text-[#1A1A1A] mb-3 md:mb-4"
           style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;"
         >
-        <span class="font-normal leading-normal italic capitalize ">{{ aboutSectionData.header.greeting }}&nbsp;</span>
-        <span class="font-normal text-[#196285]">{{ aboutSectionData.header.name }}</span>
+        <span class="font-normal leading-tight italic capitalize ">{{ aboutSectionData.header.greeting }}&nbsp;</span>
+        <span class="font-normal leading-tight text-[#673b1c]">{{ aboutSectionData.header.name }}</span>
         </h4>
 
         <!-- Subtitles -->
@@ -131,24 +131,17 @@ onMounted(() => {
             <span v-if="index !== aboutSectionData.header.subtitles.length - 1" class="w-[1px] h-3 md:h-4 bg-[#1A1A1A]/30"></span>
           </template>
         </div>
-        
-        <!-- Decorative Line -->
-        <div class="about-header-elem flex items-center justify-center gap-5 mb-4 w-full max-w-[200px] md:max-w-[280px]">
-          <span class="h-[1px] flex-grow bg-[#1A1A1A]/20"></span>
-          <img :src="aboutSectionData.header.decorationImage" alt="Decoration" class="w-[14px] h-[14px] md:w-[18px] md:h-[18px] opacity-60 brightness-0 pointer-events-none" />
-          <span class="h-[1px] flex-grow bg-[#1A1A1A]/20"></span>
-        </div>
 
       </div>
     </div>
 
-    <!-- ================= PART 2: SPLIT CONTENT (IMAGE & TEXT) ================= -->
-    <div class="relative z-10 w-full max-w-[90rem] mx-auto px-4 md:px-12 flex flex-col lg:flex-row gap-10 lg:gap-16 items-center lg:items-stretch mb-6 md:mb-8">
+    <!-- ================= PART 2: SPLIT CONTENT ================= -->
+    <div class="relative z-10 w-full max-w-[90rem] mx-auto px-4 sm:px-8 md:px-12 flex flex-col lg:flex-row gap-10 lg:gap-16 items-start mb-6 md:mb-8">
       
-      <!-- LEFT: 1:1 Square Image Container -->
-      <div class="w-full lg:w-1/2 about-image-elem flex justify-center">
-        <!-- The container strictly enforces a 1:1 aspect ratio without cropping the image inside -->
-        <div class="w-full max-w-[550px] aspect-square rounded-2xl bg-[#1A1A1A]/[0.03] border border-[#1A1A1A]/5 flex items-center justify-center p-0 overflow-hidden relative shadow-sm">
+      <!-- LEFT: Sticky Image Wrapper (Static Structural Element) -->
+      <div class="w-full lg:w-1/2 lg:sticky lg:top-28 flex justify-center self-start z-20">
+        <!-- Inner Element Handles the GSAP Transform Animation -->
+        <div class="about-image-elem w-full max-w-[550px] aspect-square rounded-2xl bg-[#1A1A1A]/[0.03] border border-[#1A1A1A]/5 flex items-center justify-center p-0 overflow-hidden relative shadow-sm">
           <img 
             :src="aboutSectionData.content.mainImage" 
             alt="Sree Jith Collage" 
@@ -158,7 +151,7 @@ onMounted(() => {
       </div>
 
       <!-- RIGHT: Paragraphs & Stats -->
-      <div class="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left">
+      <div class="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left z-10">
         
         <p 
           v-for="(para, index) in aboutSectionData.content.paragraphs" 
@@ -169,16 +162,28 @@ onMounted(() => {
           {{ para }}
         </p>
 
-        <!-- Cursive Accent -->
-        <div class="about-content-elem text-2xl md:text-[28px] text-[#8b0000] mb-10 md:mb-12" style="font-family: 'Caveat', cursive;">
-          {{ aboutSectionData.content.cursiveAccent }}
+        <!-- Cursive Accent Quote Box (Matching Reference Layout) -->
+        <div class="about-content-elem mx-auto lg:mx-0 relative w-full max-w-xl bg-[#673b1c]/5 border-l-4 border-l-[#673b1c]/70 px-2 md:px-4 py-1.5 md:py-3 rounded-r-lg mb-6 md:mb-8 flex flex-col items-start text-left">
+          
+          <!-- Left-aligned Quote Icon -->
+          <svg class="absolute z-0 top-2 right-5 w-20 h-20 text-[#673b1c]/10 shrink-0 mt-1 transform rotate-180" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.999v10h-9.999z"/>
+          </svg>
+
+          <div class="flex items-start p-2 w-full">
+            <!-- Cursive Accent Text -->
+            <p class="text-2xl md:text-3xl font-semibold text-[#673b1c] leading-relaxed" style="font-family: 'Caveat', cursive;">
+              {{ aboutSectionData.content.cursiveAccent }}
+            </p>
+          </div>
+
         </div>
 
         <!-- Horizontal Divider before Stats -->
         <div class="about-content-elem w-full max-w-xl h-[1px] bg-[#1A1A1A]/10 mb-8 mx-auto lg:mx-0"></div>
 
         <!-- Flexbox Stats Row -->
-        <div class="about-content-elem flex flex-wrap justify-center lg:justify-start gap-x-6 md:gap-x-10 gap-y-8 w-full max-w-2xl mx-auto lg:mx-0">
+        <div class="about-content-elem flex flex-wrap justify-center 2xl:justify-start gap-x-8 lg:gap-9 gap-y-8 w-full max-w-2xl mx-auto lg:mx-0">
           
           <div 
             v-for="(stat, index) in statsData" 
@@ -186,7 +191,7 @@ onMounted(() => {
             class="flex flex-col items-center text-center w-[80px] md:w-[90px]"
           >
             <!-- Circular Icon Wrapper -->
-            <div class="w-11 h-11 md:w-13 md:h-13 rounded-full border border-[#196285]/20 bg-[#196285]/5 flex items-center justify-center text-[#196285]/80 mb-3">
+            <div class="w-11 h-11 md:w-13 md:h-13 rounded-full border border-[#673b1c]/20 bg-[#673b1c]/5 flex items-center justify-center text-[#673b1c]/80 mb-3">
               <div v-html="stat.icon" class="flex items-center justify-center"></div>
             </div>
             
@@ -207,18 +212,20 @@ onMounted(() => {
     <!-- ================= PART 3: CTA & SCROLL INDICATOR ================= -->
     <div class="relative z-10 w-full pt-4 flex flex-col items-center gap-8 md:gap-10 about-cta-elem">
       
-      <NuxtLink :to="aboutSectionData.cta.link" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 bg-[#196285] border border-[#196285] hover:bg-[#751600] hover:border-[#751600] transition-colors duration-500 overflow-hidden rounded-sm">
-        <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#F9F8F6] font-medium uppercase relative z-10">
-          {{ aboutSectionData.cta.text }}
+      <NuxtLink :to="aboutSectionData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#673b1c] transition-colors duration-500 overflow-hidden rounded-sm">
+        <div class="absolute inset-0 bg-[#673b1c] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
+        <img :src="aboutSectionData.bottomCta.icon" alt="Icon" class="w-4 h-4 md:w-5 md:h-5 opacity-70 brightness-0 transition-all duration-500 relative z-10 group-hover:invert group-hover:opacity-100" />
+        <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#1A1A1A] group-hover:text-white transition-colors duration-500 relative z-10 uppercase">
+          {{ aboutSectionData.bottomCta.text }}
         </span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="relative z-10 text-[#F9F8F6] transform transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-1"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="relative z-10 text-[#1A1A1A] group-hover:text-white transform transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-1"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </NuxtLink>
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-[1px] h-10 md:h-12 bg-[#196285]/20 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-full bg-[#196285] animate-scroll-drop"></div>
+        <div class="w-[1px] h-10 md:h-12 bg-[#673b1c]/20 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full bg-[#673b1c] animate-scroll-drop"></div>
         </div>
-        <div class="w-1.5 h-1.5 rounded-full bg-[#196285]"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#673b1c]"></div>
       </div>
 
     </div>

@@ -1,4 +1,7 @@
 <script setup>
+import ItinerariesTravelYourWay2 from '~/components/ItinerariesTravelYourWay2.vue';
+import Process from '~/components/Process.vue';
+
 // Setting dynamic SEO meta tags for the Home page
 useHead({
   title: 'Home | Sreejith Travels',
@@ -9,19 +12,25 @@ useHead({
 </script>
 
 <template>
-  <div>
-    <!-- Your Dynamic, WordPress-Connected Hero Component -->
+  <main>
     <HeroVideoMax />
     <AboutSection />
-    <Itineraries />
-    <Services />
+    <!-- <ItinerariesSignature /> -->
+    <!-- <ItinerariesCollaborated /> -->
+    <!-- <ItinerariesTravelYourWay /> -->
+    <ItinerariesSignature2 />
+    <ItinerariesCollaborated2 />
+    <ItinerariesTravelYourWay2 />
+    <!-- <Services /> -->
+    <Services2 />
+    <Process />
     <Impact />
-    <Awards />
-    <Testimonials />
+    <!-- <Testimonials /> -->
+    <Testimonials2 />
     <Blog />
     <Community />
     <Banner />
     
     <!-- Future modular sections (like Featured Itineraries or Our Story) will seamlessly stack below here -->
-  </div>
+  </main>
 </template>

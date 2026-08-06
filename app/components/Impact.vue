@@ -128,14 +128,8 @@ onMounted(() => {
           style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;"
         >
           <span class="font-normal">{{ impactData.header.titleMain }}</span><br />
-          <span class="font-normal leading-normal text-[#196285] italic capitalize">{{ impactData.header.titleItalic }}</span>
+          <span class="font-normal leading-tight text-[#673b1c] italic capitalize">{{ impactData.header.titleItalic }}</span>
         </h4>
-
-        <div class="impact-header-elem flex items-center justify-center gap-5 mb-6 w-full max-w-[200px] md:max-w-[280px]">
-          <span class="h-[1px] flex-grow bg-[#1A1A1A]/20"></span>
-          <img :src="impactData.header.decorationImage" alt="Decoration" class="w-[14px] h-[14px] md:w-[18px] md:h-[18px] opacity-60 brightness-0 pointer-events-none" />
-          <span class="h-[1px] flex-grow bg-[#1A1A1A]/20"></span>
-        </div>
 
         <p class="impact-header-elem font-sans text-sm md:text-base lg:text-[15px] text-[#1A1A1A]/90 font-light max-w-xl">
           {{ impactData.header.intro }}
@@ -145,7 +139,7 @@ onMounted(() => {
     </div>
 
     <!-- ================= DESKTOP & TABLET: SPLIT LAYOUT ================= -->
-    <div class="hidden md:flex w-full max-w-[90rem] mx-auto px-8 lg:px-16 xl:px-24 flex-row items-center gap-4 lg:gap-8">
+    <div class="hidden sm:flex w-full max-w-[90rem] mx-auto px-8 lg:px-16 xl:px-24 flex-row items-center gap-4 lg:gap-8">
       
       <!-- LEFT COLUMN: Interactive List -->
       <div class="w-5/12 lg:w-4/12 flex flex-col gap-2 relative z-20 shrink-0">
@@ -157,7 +151,7 @@ onMounted(() => {
         >
           <!-- Short Title: Font size increased across devices -->
           <span 
-            class="text-[11px] md:text-[12px] lg:text-[13px] font-sans tracking-[0.2em] uppercase font-bold transition-colors duration-500 shrink-0"
+            class="text-[13px] md:text-[14px] lg:text-[15px] font-sans tracking-[0.2em] uppercase font-bold transition-colors duration-500 shrink-0"
             :class="activeIndex === idx ? 'text-[#1A1A1A]' : 'text-[#1A1A1A]/40 group-hover:text-[#1A1A1A]/70'"
           >
             {{ item.shortTitle }}
@@ -222,12 +216,12 @@ onMounted(() => {
             </p>
 
             <!-- Embedded Consistent Button -->
-            <NuxtLink :to="item.url" class="group/btn relative inline-flex items-center gap-3 px-6 py-3 border border-[#F9F8F6]/40 hover:bg-[#F9F8F6] hover:border-[#F9F8F6] transition-colors duration-500 rounded-sm overflow-hidden w-fit">
+            <!-- <NuxtLink :to="item.url" class="group/btn relative inline-flex items-center gap-3 px-6 py-3 border border-[#F9F8F6]/40 hover:bg-[#F9F8F6] hover:border-[#F9F8F6] transition-colors duration-500 rounded-sm overflow-hidden w-fit">
               <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#F9F8F6] group-hover/btn:text-[#1A1A1A] font-bold uppercase transition-colors duration-500 relative z-10">
                 Explore Value
               </span>
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 transform transition-transform duration-500 stroke-[#F9F8F6] group-hover/btn:stroke-[#1A1A1A] group-hover/btn:translate-x-1 relative z-10"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-            </NuxtLink>
+            </NuxtLink> -->
 
           </div>
         </div>
@@ -237,7 +231,7 @@ onMounted(() => {
     </div>
 
     <!-- ================= MOBILE: HORIZONTAL NATIVE SWIPE ================= -->
-    <div class="md:hidden w-full flex flex-col pt-2">
+    <div class="sm:hidden w-full flex flex-col pt-2">
       
       <!-- Draggable Swipe Container -->
       <div class="flex overflow-x-auto hide-scrollbar scroll-snap-x mandatory gap-5 pb-6 px-6 relative z-10">
@@ -245,7 +239,7 @@ onMounted(() => {
           v-for="item in impactData.items" 
           :key="`mob-${item.id}`"
           :to="item.url"
-          class="group block relative scroll-snap-align-start shrink-0 w-[85vw] aspect-[4/5] rounded-2xl overflow-hidden shadow-md bg-[#1A1A1A]"
+          class="group block relative scroll-snap-align-start shrink-0 w-[85vw] aspect-square rounded-2xl overflow-hidden shadow-md bg-[#1A1A1A]"
         >
           <img :src="item.img" :alt="item.shortTitle" class="absolute inset-0 w-full h-full object-cover" />
           
@@ -269,12 +263,12 @@ onMounted(() => {
             </div>
 
             <!-- Embedded Consistent Button (Scaled for Mobile) -->
-            <div class="group/btn relative inline-flex items-center gap-3 px-5 py-2.5 border border-[#F9F8F6]/40 hover:bg-[#F9F8F6] hover:border-[#F9F8F6] transition-colors duration-500 rounded-sm overflow-hidden w-fit mt-2 pointer-events-auto">
+            <!-- <div class="group/btn relative inline-flex items-center gap-3 px-5 py-2.5 border border-[#F9F8F6]/40 hover:bg-[#F9F8F6] hover:border-[#F9F8F6] transition-colors duration-500 rounded-sm overflow-hidden w-fit mt-2 pointer-events-auto">
               <span class="text-[9px] font-sans tracking-[0.2em] text-[#F9F8F6] group-hover/btn:text-[#1A1A1A] font-bold uppercase transition-colors duration-500 relative z-10">
                 Explore Value
               </span>
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 transform transition-transform duration-500 stroke-[#F9F8F6] group-hover/btn:stroke-[#1A1A1A] group-hover/btn:translate-x-1 relative z-10"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-            </div>
+            </div> -->
             
           </div>
         </NuxtLink>
@@ -285,8 +279,8 @@ onMounted(() => {
     <!-- ================= BOTTOM CTA BUTTON & DECORATIVE LINE (Global Standard) ================= -->
     <div class="w-full mt-3 md:mt-8 pt-2 flex flex-col items-center gap-8 md:gap-10 relative z-20 impact-cta-elem">
       
-      <NuxtLink :to="impactData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#196285] transition-colors duration-500 overflow-hidden rounded-sm">
-        <div class="absolute inset-0 bg-[#196285] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
+      <NuxtLink :to="impactData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#673b1c] transition-colors duration-500 overflow-hidden rounded-sm">
+        <div class="absolute inset-0 bg-[#673b1c] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
         <img :src="impactData.bottomCta.icon" alt="Icon" class="w-4 h-4 md:w-5 md:h-5 opacity-70 brightness-0 transition-all duration-500 relative z-10 group-hover:invert group-hover:opacity-100" />
         <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#1A1A1A] group-hover:text-white transition-colors duration-500 relative z-10 uppercase">
           {{ impactData.bottomCta.text }}
@@ -295,10 +289,10 @@ onMounted(() => {
       </NuxtLink>
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-[1px] h-10 md:h-12 bg-[#196285]/20 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-full bg-[#196285] animate-scroll-drop"></div>
+        <div class="w-[1px] h-10 md:h-12 bg-[#673b1c]/20 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full bg-[#673b1c] animate-scroll-drop"></div>
         </div>
-        <div class="w-1.5 h-1.5 rounded-full bg-[#196285]"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#673b1c]"></div>
       </div>
     </div>
 

@@ -7,14 +7,15 @@
 /* app.css */
 :root {
   /* Functional Palette Tokens */
-  --color-primary: #751600;       /* Base Dark Mocha */
-  --color-secondary: #196285;     /* Deep Forest Green */
+  --color-primary: #703e19;       /* Base Dark Mocha */
+  --color-secondary: #673b1c;     /* Deep Forest Green */
   --color-accent: #F6BD03;        /* Cinematic Gold */
   
   /* Background/Surface Tokens */
   --color-surface-sun: #F9F8F6;    /* Warm Off-White (Primary Light) */
-  --color-surface-mocha: #ac6c41; /* Light Brown (Secondary Light) */
+  --color-surface-mocha: #C47551; /* Light Brown (Secondary Light) #ac6c41 */
   --color-surface-green: #549227; /* Light Green (Minimal Use) */
+  --color-surface-dark-gold: #b57819; /* Light Green (Minimal Use) */
   
   /* Text Tokens (The Warm Charcoals) */
   --color-text-primary: #2A2421;  /* Headings & High Emphasis */

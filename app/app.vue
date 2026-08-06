@@ -1,16 +1,27 @@
 <script setup>
 import { onMounted } from 'vue';
-// Aligned with your updated SCSS structure
+import { useRouter } from 'vue-router'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+
 import '~/assets/scss/main.scss'
 
+const router = useRouter();
+
 onMounted(() => {
-  // Disable the browser's native scroll memory
+
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
   
-  // Force position to absolute top on every initialization
   window.scrollTo(0, 0);
+
+  router.afterEach(() => {
+    setTimeout(() => {
+      ScrollTrigger.refresh()
+    }, 250) 
+  })
+
 });
 </script>
 

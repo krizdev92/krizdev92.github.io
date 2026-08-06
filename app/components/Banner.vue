@@ -36,7 +36,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="experiences-banner" class="w-full py-12 md:py-16  bg-[#FFF9E0]/10 px-4 md:px-12 flex justify-center">
+  <section id="experiences-banner" class="w-full py-12 md:py-16  bg-[#f9f8f6] px-4 md:px-12 flex justify-center">
     
     <!-- 
       Reduced Height Container:
@@ -74,8 +74,8 @@ onMounted(() => {
         
         <!-- CTA Button -->
         <div class="banner-reveal-elem pointer-events-auto">
-            <NuxtLink to="/Planyourjourney" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 backdrop-blur-sm border border-[#F9F8F6]/30 hover:border-[#ac6c41] transition-colors duration-500 overflow-hidden">
-              <div class="absolute inset-0 bg-[#ac6c41] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
+            <NuxtLink to="/Planyourjourney" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 backdrop-blur-sm border border-[#F9F8F6]/30 hover:border-[#b57819] transition-colors duration-500 overflow-hidden">
+              <div class="absolute inset-0 bg-[#C47551] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
               <img src="/images/logoart.png" alt="Icon" class="w-4 h-4 md:w-5 md:h-5 opacity-70 brightness-0 invert group-hover:opacity-100 transition-all duration-500 relative z-10" />
               <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#F9F8F6] group-hover:text-white transition-colors duration-500 relative z-10 uppercase">
                 Plan Your Journey

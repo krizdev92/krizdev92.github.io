@@ -6,6 +6,11 @@
     <!-- Main Content Area where pages inject automatically -->
     <main class="">
       <slot />
+      
+      <!-- Global Floating Components -->
+      <ScrollNavigation />
+      <QuickActions />
+      
     </main>
 
     <!-- Dynamic Footer Component will load here -->

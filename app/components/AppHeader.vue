@@ -11,14 +11,14 @@ const leftLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/About' },
   { name: 'Itineraries', path: '/Itineraries' },
-  { name: 'Services', path: '/Services' }
 ]
 
 const rightLinks = [
+  { name: 'Services', path: '/Services' },
   { name: 'Impact', path: '/Impact' },
-  { name: 'Testimonials', path: '/Testimonials' },
+  // { name: 'Testimonials', path: '/Testimonials' },
   { name: 'Blog', path: '/Blog' },
-  { name: 'Community', path: '/Community' }
+  // { name: 'Community', path: '/Community' }
 ]
 
 onMounted(() => {
@@ -39,7 +39,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-[0_12px_40px_-12px_rgba(0,0,0,0.15)] transition-all duration-500">
+  <header class="fixed top-0 left-0 w-full z-50 bg-[#f9f8f6]/95 backdrop-blur-md shadow-[0_12px_40px_-12px_rgba(0,0,0,0.25)] transition-all duration-500">
     
     <!-- Foundation Flex Container -->
     <div class="flex justify-between items-center px-2 md:px-5 h-16 md:h-20 max-w-[120rem] mx-auto relative z-10">
@@ -48,7 +48,7 @@ onMounted(() => {
       <div class="flex flex-1 items-center justify-start">
         <button 
           @click="isMenuOpen = true"
-          class="relative w-10 h-10 md:w-12 md:h-12 rounded-full border-[2px] border-[#ac6c41]/20 flex flex-col justify-center items-center group hover:border-[#ac6c41] transition-colors duration-500 outline-none flex-shrink-0"
+          class="relative w-10 h-10 md:w-12 md:h-12 rounded-full border-[2px] border-[#C47551]/20 flex flex-col justify-center items-center group hover:border-[#C47551] transition-colors duration-500 outline-none flex-shrink-0"
           aria-label="Open Menu"
         >
           <div class="w-[19px] h-[8px] md:w-[24px] md:h-[10px] relative flex flex-col items-start">
@@ -62,28 +62,31 @@ onMounted(() => {
         </button>
 
         <!-- Left Desktop Links -->
-        <nav class="hidden xl:flex items-center gap-8 2xl:gap-12 ml-auto pr-10 2xl:pr-14">
+        <nav class="hidden lg:flex items-center gap-8 xl:gap-12 2xl:gap-20 ml-auto pr-10 2xl:pr-14">
           <NuxtLink 
             v-for="link in leftLinks" 
             :key="link.name" 
             :to="link.path" 
-            class="group relative text-[12px] 2xl:text-[14px] tracking-[0.2em] text-[#2A2421] uppercase transition-colors duration-500 hover:text-[#ac6c41]" 
+            class="group relative text-[12px] 2xl:text-[14px] tracking-[0.2em] text-[#2A2421] uppercase transition-colors duration-500 hover:text-[#C47551]" 
             style="font-family: 'Inter', sans-serif; font-weight: 400;"
           >
             {{ link.name }}
-            <span class="absolute -bottom-[6px] left-1/2 w-0 h-[2px] bg-[#ac6c41] -translate-x-1/2 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:w-full"></span>
+            <span class="absolute -bottom-[6px] left-1/2 w-0 h-[2px] bg-[#C47551] -translate-x-1/2 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:w-full"></span>
           </NuxtLink>
         </nav>
       </div>
 
-      <!-- Center: Signature Logo -->
+      <!-- Center: Signature Logo & Tagline -->
       <div class="flex-shrink-0 flex items-center justify-center">
-        <NuxtLink to="/" class="cursor-pointer outline-none block">
+        <NuxtLink to="/" class="group cursor-pointer outline-none flex flex-col items-center justify-center">
           <img 
             src="/images/sreejith-logo.png" 
             alt="Sree Jith" 
-            class="h-11 md:h-14 w-auto object-contain transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:drop-shadow-[0_8px_12px_rgba(99,42,0,0.25)] hover:scale-[1.03] hover:-translate-y-[2px]" 
+            class="h-9 md:h-11 w-auto object-contain transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:drop-shadow-[0_8px_12px_rgba(99,42,0,0.25)] group-hover:scale-[1.03] group-hover:-translate-y-[2px]" 
           />
+          <span class="text-[8px] md:text-[10px] tracking-[0.3em] font-sans text-[#2A2421]/90 uppercase mt-1 md:mt-1.5 ">
+            Travel Experience Designer
+          </span>
         </NuxtLink>
       </div>
 
@@ -91,55 +94,65 @@ onMounted(() => {
       <div class="flex flex-1 items-center justify-end">
         
         <!-- Right Desktop Links -->
-        <nav class="hidden xl:flex items-center gap-8 2xl:gap-12 mr-auto pl-10 2xl:pl-14">
+        <nav class="hidden lg:flex items-center gap-8 xl:gap-12 2xl:gap-20 mr-auto pl-10 2xl:pl-14">
           <NuxtLink 
             v-for="link in rightLinks" 
             :key="link.name" 
             :to="link.path" 
-            class="group relative text-[12px] 2xl:text-[14px] tracking-[0.2em] text-[#2A2421] uppercase transition-colors duration-500 hover:text-[#ac6c41]" 
+            class="group relative text-[12px] 2xl:text-[14px] tracking-[0.2em] text-[#2A2421] uppercase transition-colors duration-500 hover:text-[#C47551]" 
             style="font-family: 'Inter', sans-serif; font-weight: 400;"
           >
             {{ link.name }}
-            <span class="absolute -bottom-[6px] left-1/2 w-0 h-[2px] bg-[#ac6c41] -translate-x-1/2 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:w-full"></span>
+            <span class="absolute -bottom-[6px] left-1/2 w-0 h-[2px] bg-[#C47551] -translate-x-1/2 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:w-full"></span>
           </NuxtLink>
         </nav>
 
         <NuxtLink to="/Contact" class="cursor-pointer outline-none block">  
           <button 
-            class="relative w-10 h-10 md:w-12 md:h-12 rounded-full border-[2px] border-[#ac6c41]/20 flex items-center justify-center group hover:border-[#ac6c41] transition-colors duration-500 outline-none flex-shrink-0"
+            class="relative w-10 h-10 md:w-12 md:h-12 rounded-full border-[2px] border-[#C47551]/20 flex items-center justify-center group hover:border-[#C47551] transition-colors duration-500 outline-none flex-shrink-0"
             aria-label="Contact Us"
           >
-            <svg viewBox="0 0 24 24" class="w-[19px] h-[19px] md:w-[24px] md:h-[24px] text-[#2A2421] relative top-[1px] right-[1px] transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.2]" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 2L11 13"></path>
-              <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
-            </svg>
+          <svg
+            viewBox="0 0 64 64"
+            class="w-[19px] h-[19px] md:w-[24px] md:h-[24px] text-[#2A2421] relative top-[1px] right-[1px] transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-[1.2]"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            xml:space="preserve"
+            >
+              <path d="M37.063,18.062h-0.0596c-0.5522,0-0.9702,0.4478-0.9702,1s0.4775,1,1.0298,1s1-0.4478,1-1S37.6152,18.062,37.063,18.062z     "/>
+
+              <path d="M45.1787,18.062H45.123c-0.5522,0-0.9722,0.4478-0.9722,1s0.4756,1,1.0278,1s1-0.4478,1-1S45.731,18.062,45.1787,18.062z     "/>
+
+              <path d="M53.2983,18.062h-0.0596c-0.5522,0-0.9702,0.4478-0.9702,1s0.4775,1,1.0298,1s1-0.4478,1-1     S53.8506,18.062,53.2983,18.062z"/>
+
+              <path d="M45.1953,45.9268c-5.1489-2.9038-6.6909-2.6665-10.6172-0.4468c-2.0146,1.3389-4.4404,0.5225-8.6563-2.9111     c-0.8276-0.6743-1.6592-1.4263-2.4688-2.2319c-0.8091-0.8125-1.5605-1.644-2.2344-2.4722     c-3.1782-3.8999-4.0435-7.459-3.0112-8.5317c3.042-3.271,2.3516-5.957-0.3335-10.7173c-1.6172-3.0591-3.3931-6.104-5.7568-6.8027     c-1.7139-0.5034-4.2588,0.8154-5.0166,1.3184c-1.9492,1.2983-3.8003,3.5947-4.8311,5.9937     c-1.896,4.4136-1.3931,9.7329-0.29,13.2397c1.812,5.749,6.1611,12.4063,11.6348,17.8086     c5.4043,5.4761,12.0615,9.8242,17.8081,11.6313c1.8154,0.5728,4.1167,0.9844,6.5283,0.9844c2.2437,0,4.583-0.3564,6.7124-1.271     c2.3989-1.0327,4.6938-2.8838,5.9888-4.8306c0.5039-0.7554,1.8276-3.2998,1.3184-5.021     C51.2754,49.3071,48.2305,47.5308,45.1953,45.9268z M44.2368,47.6821c1.8521,0.979,5.2998,2.8018,5.8149,4.5513     c0.1056,0.3564-0.0228,1.0059-0.2598,1.681l-13.5292-7.089C38.8073,45.4165,39.8377,45.2009,44.2368,47.6821z M11.5513,13.7314     c1.7524,0.5181,3.5752,3.9663,4.5674,5.8428c2.6213,4.647,2.613,6.1134,0.9274,8.0579L9.748,14.0356     c0.556-0.2056,1.1049-0.3412,1.499-0.3412C11.3633,13.6943,11.4658,13.7061,11.5513,13.7314z M43.873,59.6807     c-3.9175,1.6836-8.8311,1.1694-11.8501,0.2163c-5.4517-1.7144-11.8032-5.8765-16.9897-11.1328     c-0.0034-0.0034-0.0063-0.0063-0.0098-0.0098C9.7695,43.5698,5.606,37.2178,3.8872,31.7642     c-0.9497-3.0195-1.4619-7.9346,0.2202-11.8501c0.8441-1.9645,2.3123-3.8291,3.8699-4.948l7.923,14.7618     c-0.4362,2.3732,0.9189,5.9038,3.7676,9.4001c0.7153,0.8789,1.5122,1.7607,2.3711,2.623     c0.8594,0.856,1.7407,1.6528,2.6196,2.3687c3.0879,2.5153,6.3303,4.6262,9.3667,3.7915l14.8708,7.792     C47.7888,57.3002,45.8823,58.816,43.873,59.6807z"/>
+
+              <path d="M60.9551,10.771C56.3843,2.0591,45.5757-1.3105,36.8604,3.2568l-0.0005,0.0005     c-8.7119,4.5723-12.0825,15.3813-7.5137,24.0952c0.3311,0.6313,0.709,1.2549,1.1274,1.8613l-2.7012,4.6299     c-0.1885,0.3228-0.1812,0.7241,0.0195,1.0396c0.1997,0.3159,0.5596,0.4912,0.9321,0.4604l7.75-0.6851     c2.7095,1.5068,5.6899,2.2627,8.6748,2.2627c2.8374,0,5.6787-0.6836,8.293-2.0552     C62.1543,30.2944,65.5249,19.4854,60.9551,10.771z M52.5127,33.0952c-4.8472,2.543-10.5723,2.4214-15.3154-0.3252     c-0.1523-0.0884-0.3257-0.1348-0.501-0.1348c-0.0293,0-0.0586,0.0015-0.0879,0.0039l-6.1338,0.542l2.0532-3.519     c0.2017-0.3462,0.1777-0.7793-0.0615-1.1006c-0.5132-0.6899-0.9668-1.4092-1.3486-2.1377     c-4.0571-7.7373-1.0645-17.3354,6.6719-21.396l-0.0005,0.0005c7.7378-4.0581,17.3354-1.0635,21.395,6.6719     C63.2417,19.438,60.2485,29.0356,52.5127,33.0952z"/>
+          
+          </svg>
           </button>
         </NuxtLink>
       </div>
 
     </div>
 
-    <!-- 
-      Abstract Liquid Horizon Progress Track
-      Anchored to the very bottom, flowing strictly left to right.
-    -->
-    <div class="absolute bottom-0 left-0 w-full h-[2px] md:h-[3px] pointer-events-none z-20 overflow-hidden">
+    <!-- Abstract Liquid Horizon Progress Track -->
+    <div class="absolute bottom-0 left-0 w-full h-[3px] md:h-[4px] pointer-events-none z-20 overflow-hidden">
       <div 
         class="liquid-horizon absolute top-0 left-0 w-full h-full origin-left scale-x-0"
         style="
-          background: linear-gradient(90deg, rgba(172, 108, 65, 0) 0%, rgba(172, 108, 65, 0.6) 60%, rgba(139, 0, 0, 1) 100%);
-          box-shadow: 2px 0 6px rgba(139, 0, 0, 0.6);
+         background: linear-gradient(90deg, rgba(172, 108, 65, 0) 0%, rgba(172, 108, 65, 0.6) 60%, rgba(103, 59, 27, 1) 100%);
+         box-shadow: 2px 0 6px rgba(103, 59, 27, 0.6);
         "
       ></div>
     </div>
 
   </header>
 
-  <!-- 
-    Sidebar Component Integration 
-    Moved OUTSIDE the <header> tag to escape the backdrop-blur containing block.
-    This allows it to correctly attach to the full viewport window.
-  -->
+  <!-- Sidebar Component Integration -->
   <Sidebar 
     :isOpen="isMenuOpen" 
     :primaryLinks="leftLinks" 

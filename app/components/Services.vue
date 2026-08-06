@@ -108,7 +108,7 @@ onMounted(() => {
           style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;"
         >
           <span class="font-normal">{{ servicesData.header.titleMain }}</span><br />
-          <span class="font-normal leading-normal text-[#196285] italic capitalize">{{ servicesData.header.titleItalic }}</span>
+          <span class="font-normal leading-normal text-[#673b1c] italic capitalize">{{ servicesData.header.titleItalic }}</span>
         </h4>
 
         <div class="services-header-elem flex items-center justify-center gap-5 mb-6 w-full max-w-[200px] md:max-w-[280px]">
@@ -146,7 +146,7 @@ onMounted(() => {
           >
             
             <!-- FRONT FACE (Dark Glassy Gradient + Visible Inner Border) -->
-            <div class="absolute inset-0 backface-hidden rounded-2xl overflow-hidden bg-gradient-to-br from-[#196285] to-[#08374d] flex flex-col items-center justify-center p-6 text-center text-[#F9F8F6]">
+            <div class="absolute inset-0 backface-hidden rounded-2xl overflow-hidden bg-gradient-to-br from-[#673b1c] to-[#08374d] flex flex-col items-center justify-center p-6 text-center text-[#F9F8F6]">
               
               <!-- Refined, more visible Inner Border -->
               <div class="absolute inset-3 md:inset-4 border border-white/30 rounded-xl pointer-events-none"></div>
@@ -158,16 +158,16 @@ onMounted(() => {
             </div>
             
             <!-- BACK FACE (Soft Tinted Background & Description) -->
-            <div class="absolute inset-0 backface-hidden rotate-y-180 border border-[#196285]/10 rounded-2xl overflow-hidden bg-[#ebf1f4] flex flex-col items-center justify-center p-6 md:p-8 lg:p-10 text-center">
+            <div class="absolute inset-0 backface-hidden rotate-y-180 border border-[#673b1c]/10 rounded-2xl overflow-hidden bg-[#ebf1f4] flex flex-col items-center justify-center p-6 md:p-8 lg:p-10 text-center">
               
               <!-- Subtle watermark icon -->
-              <div class="absolute -bottom-6 -right-6 w-40 h-40 opacity-[0.03] text-[#196285] pointer-events-none" v-html="service.icon"></div>
+              <div class="absolute -bottom-6 -right-6 w-40 h-40 opacity-[0.03] text-[#673b1c] pointer-events-none" v-html="service.icon"></div>
 
-              <div class="w-8 h-8 md:w-10 md:h-10 mb-3 text-[#196285]" v-html="service.icon"></div>
-              <h3 class="text-lg md:text-xl lg:text-[22px] text-[#196285] mb-2 leading-tight" style="font-family: 'Noto Serif', serif;">
+              <div class="w-8 h-8 md:w-10 md:h-10 mb-3 text-[#673b1c]" v-html="service.icon"></div>
+              <h3 class="text-lg md:text-xl lg:text-[22px] text-[#673b1c] mb-2 leading-tight" style="font-family: 'Noto Serif', serif;">
                 {{ service.title }}
               </h3>
-              <div class="w-6 h-[1.5px] bg-[#196285]/20 mb-3"></div>
+              <div class="w-6 h-[1.5px] bg-[#673b1c]/20 mb-3"></div>
               <p class="font-sans text-[13px] lg:text-[14px] leading-[1.6] text-[#1A1A1A]/90 font-light relative z-10">
                 {{ service.description }}
               </p>
@@ -182,20 +182,20 @@ onMounted(() => {
     <!-- ================= CTA & SCROLL INDICATOR ================= -->
     <div class="w-full mt-5 md:mt-8 pt-4 flex flex-col items-center gap-8 md:gap-10 relative z-20 services-cta-elem">
       
-      <NuxtLink :to="servicesData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#751600] transition-colors duration-500 overflow-hidden rounded-sm bg-transparent">
-        <div class="absolute inset-0 bg-[#751600] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
+      <NuxtLink :to="servicesData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#673b1c] transition-colors duration-500 overflow-hidden rounded-sm">
+        <div class="absolute inset-0 bg-[#673b1c] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
         <img :src="servicesData.bottomCta.icon" alt="Icon" class="w-4 h-4 md:w-5 md:h-5 opacity-70 brightness-0 transition-all duration-500 relative z-10 group-hover:invert group-hover:opacity-100" />
-        <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#1A1A1A] group-hover:text-white transition-colors duration-500 relative z-10 uppercase">
+        <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#1A1A1A] group-hover:text-white transition-colors duration-500 relative z-10 uppercase from-neutral-500">
           {{ servicesData.bottomCta.text }}
         </span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="relative z-10 text-[#1A1A1A] group-hover:text-white transform transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-1"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </NuxtLink>
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-[1px] h-10 md:h-12 bg-[#196285]/20 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-full bg-[#196285] animate-scroll-drop"></div>
+        <div class="w-[1px] h-10 md:h-12 bg-[#673b1c]/20 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full bg-[#673b1c] animate-scroll-drop"></div>
         </div>
-        <div class="w-1.5 h-1.5 rounded-full bg-[#196285]"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#673b1c]"></div>
       </div>
     </div>
 

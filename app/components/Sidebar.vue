@@ -15,9 +15,7 @@ const mainLinks = [
   { name: 'Itineraries', path: '/Itineraries' },
   { name: 'Services', path: '/Services' },
   { name: 'Impact', path: '/Impact' },
-  { name: 'Testimonials', path: '/Testimonials' },
   { name: 'Blog', path: '/Blog' },
-  { name: 'Community', path: '/Community' }
 ]
 
 // Call to action boxes
@@ -90,22 +88,22 @@ watch(() => props.isOpen, (newVal) => {
     ></div>
 
     <!-- Sidebar Panel -->
-    <aside class="sidebar-panel relative w-full md:w-[450px] h-full bg-[#F9F8F6] pointer-events-auto flex flex-col shadow-2xl border-r border-[#ac6c41]/20">
+    <aside class="sidebar-panel relative w-full md:w-[450px] h-full bg-[#F9F8F6] pointer-events-auto flex flex-col shadow-2xl border-r border-[#C47551]/20">
       
         <!-- Top Header Section (Pinned) -->
-        <div class="flex items-center justify-between px-8 md:px-12 py-5 border-b border-[#ac6c41]/10 flex-shrink-0">
-            <span class="font-sans text-md tracking-[0.3em] text-[#196285] uppercase font-bold" style="font-family: 'Inter', sans-serif;">MENU</span>
+        <div class="flex items-center justify-between px-8 md:px-12 py-5 border-b border-[#C47551]/10 flex-shrink-0">
+            <span class="font-sans text-md tracking-[0.3em] text-[#673b1c] uppercase font-bold" style="font-family: 'Inter', sans-serif;">MENU</span>
             
             <button 
               @click="emit('close')" 
-              class="w-10 h-10 md:w-12 md:h-12 rounded-full border-[2px] border-[#ac6c41]/20 flex items-center justify-center group hover:border-[#ac6c41] transition-colors duration-500 outline-none cursor-pointer"
+              class="w-10 h-10 md:w-12 md:h-12 rounded-full border-[2px] border-[#C47551]/20 flex items-center justify-center group hover:border-[#C47551] transition-colors duration-500 outline-none cursor-pointer"
             >
                 <div class="relative w-5 h-5 flex flex-col justify-center items-center">
                     <span class="w-6 h-[2px] bg-[#2A2421] absolute rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:rotate-180 group-hover:opacity-0"></span>
                     <span class="w-6 h-[2px] bg-[#2A2421] absolute -rotate-45 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:-rotate-180 group-hover:opacity-0"></span>
                     
-                    <span class="w-5 h-[2px] bg-[#ac6c41] absolute -translate-y-1.5 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:opacity-100 group-hover:translate-y-0"></span>
-                    <span class="w-5 h-[2px] bg-[#ac6c41] absolute translate-y-1.5 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:opacity-100 group-hover:translate-y-0"></span>
+                    <span class="w-5 h-[2px] bg-[#C47551] absolute -translate-y-1.5 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:opacity-100 group-hover:translate-y-0"></span>
+                    <span class="w-5 h-[2px] bg-[#C47551] absolute translate-y-1.5 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:opacity-100 group-hover:translate-y-0"></span>
                 </div>
             </button>
         </div>
@@ -123,10 +121,10 @@ watch(() => props.isOpen, (newVal) => {
               :key="link.name" 
               :to="link.path"
               @click="emit('close')"
-              class="sidebar-link-item group relative w-fit flex items-center gap-4 text-xl md:text-2xl text-[#2A2421] uppercase tracking-[0.05em] transition-colors duration-500 hover:text-[#ac6c41] cursor-pointer"
+              class="sidebar-link-item group relative w-fit flex items-center gap-4 text-xl md:text-2xl text-[#2A2421] uppercase tracking-[0.05em] transition-colors duration-500 hover:text-[#C47551] cursor-pointer"
               style="font-family: 'Inter', sans-serif; font-weight: 300;"
             >
-              <span class="w-0 h-[2px] bg-[#ac6c41] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:w-8"></span>
+              <span class="w-0 h-[2px] bg-[#C47551] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:w-8"></span>
               {{ link.name }}
             </NuxtLink>
           </nav>
@@ -138,9 +136,9 @@ watch(() => props.isOpen, (newVal) => {
               :key="cta.name" 
               :to="cta.path"
               @click="emit('close')"
-              class="sidebar-cta group relative w-full border border-[#ac6c41]/50 py-4 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:border-[#ac6c41] hover:bg-[#ac6c41]/5 cursor-pointer"
+              class="sidebar-cta group relative w-full border border-[#C47551]/50 py-4 flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:border-[#C47551] hover:bg-[#C47551]/5 cursor-pointer"
             >
-              <span class="text-sm tracking-[0.2em] text-[#2A2421] uppercase transition-colors duration-500 group-hover:text-[#ac6c41]" style="font-family: 'Inter', sans-serif; font-weight: 400;">
+              <span class="text-sm tracking-[0.2em] text-[#2A2421] uppercase transition-colors duration-500 group-hover:text-[#C47551]" style="font-family: 'Inter', sans-serif; font-weight: 400;">
                 {{ cta.name }}
               </span>
             </NuxtLink>
@@ -153,7 +151,7 @@ watch(() => props.isOpen, (newVal) => {
               :key="footerLink.name" 
               :to="footerLink.path"
               @click="emit('close')"
-              class="w-fit text-base tracking-[0.1em] text-[#2A2421]/60 uppercase transition-all duration-500 hover:text-[#ac6c41] hover:opacity-100 cursor-pointer"
+              class="w-fit text-base tracking-[0.1em] text-[#2A2421]/60 uppercase transition-all duration-500 hover:text-[#C47551] hover:opacity-100 cursor-pointer"
               style="font-family: 'Inter', sans-serif; font-weight: 400;"
             >
               {{ footerLink.name }}
@@ -163,8 +161,11 @@ watch(() => props.isOpen, (newVal) => {
         </div>
 
         <!-- Sticky Footer Logo (mt-auto dynamically pushes it to the bottom if there is space) -->
-        <div class="mt-auto px-8 md:px-12 py-5 border-t border-[#ac6c41]/10 flex-shrink-0 bg-[#F9F8F6]">
+        <div class="mt-auto px-8 md:px-12 py-5 border-t border-[#C47551]/10 flex-shrink-0 bg-[#F9F8F6]">
           <img src="/images/sreejith-logo.png" alt="Sree Jith" class="h-10 md:h-12 w-auto object-contain opacity-60 transition-opacity duration-500 hover:opacity-100" />
+          <span class="text-[8px] md:text-[10px] tracking-[0.3em] font-sans text-[#2A2421]/90 uppercase mt-1 md:mt-1.5 ">
+            Travel Experience Designer
+          </span>
         </div>
 
       </div>
