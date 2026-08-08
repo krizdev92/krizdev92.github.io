@@ -30,23 +30,13 @@ onMounted(() => {
     }
   })
 
-  // Header Reveal
-  tl.fromTo('.awards-header-elem', 
-    { y: 30, opacity: 0 },
-    { y: 0, opacity: 1, stagger: 0.15, duration: 1, ease: 'power3.out' }
-  )
   // Flexbox Grid Reveal
-  .fromTo('.awards-item-elem',
+  tl.fromTo('.awards-item-elem',
     { opacity: 0, scale: 0.9, y: 20 },
     { opacity: 1, scale: 1, y: 0, stagger: 0.1, duration: 0.8, ease: 'back.out(1.2)' },
     "-=0.6"
   )
-  // CTA & Line Reveal
-  .fromTo('.awards-cta-elem',
-    { opacity: 0, y: 20 },
-    { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
-    "-=0.4"
-  )
+
 })
 </script>
 
