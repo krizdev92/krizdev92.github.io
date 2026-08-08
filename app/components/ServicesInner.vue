@@ -26,6 +26,7 @@ const servicesData = {
         shortDesc: 'White-label itinerary execution and dedicated ground handling for your discerning clientele.',
         icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`,
         content: {
+          eyebrow: 'Boutique Agencies',
           titleMain: 'Your Trusted',
           titleHighlight: 'Ground Partner',
           paragraph: 'We operate as an invisible extension of your agency, ensuring your brand standards are meticulously maintained from arrival to departure. Your clients receive our uncompromised dedication, while you retain complete creative and commercial ownership.',
@@ -48,6 +49,7 @@ const servicesData = {
         shortDesc: 'Immersive executive retreats focused on wellness, team synergy, and strategic disconnection.',
         icon: `<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>`,
         content: {
+          eyebrow: 'Corporate Retreats',
           titleMain: 'Executive',
           titleHighlight: 'Immersions',
           paragraph: 'We design high-touch corporate retreats that move beyond standard boardrooms. By integrating local heritage and deep nature immersions, we foster environments where genuine leadership synergy and strategic clarity can emerge.',
@@ -70,6 +72,7 @@ const servicesData = {
         shortDesc: 'Logistical architecture for holistic practitioners hosting retreats in the subcontinent.',
         icon: `<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>`,
         content: {
+          eyebrow: 'Wellness Collectives',
           titleMain: 'Sanctuary',
           titleHighlight: 'Coordination',
           paragraph: 'For yoga instructors, Ayurvedic practitioners, and wellness coaches seeking to host retreats in India or Sri Lanka, we provide the foundational architecture. We handle the complex logistics so you can focus entirely on your teachings.',
@@ -92,6 +95,7 @@ const servicesData = {
         shortDesc: 'On-demand, highly specialized local fulfillment for global lifestyle management firms.',
         icon: `<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>`,
         content: {
+          eyebrow: 'Luxury Concierge',
           titleMain: 'On-Demand',
           titleHighlight: 'Exclusivity',
           paragraph: 'When your members require the impossible in our region, we are your boots on the ground. From securing last-minute private jet clearances to arranging unlisted ancestral home dinners, we execute with absolute discretion.',
@@ -117,8 +121,12 @@ const servicesData = {
       subtitle: 'The Art Of',
       titleMain: 'Experience',
       titleHighlight: 'Design',
+      intro: 'Exclusive collaborations for boutique agencies and luxury concierges seeking impeccable, white-label execution on the ground.'
     },
     content: {
+      eyebrow: 'Personalized',
+      titleMain: 'Being',
+      titleHighlight: 'Bespoke',
       paragraph: 'End-to-end itinerary design tailored meticulously to your specific pace, preferences, and cultural interests. We craft immersive journeys that transcend the ordinary, blending luxurious comfort with profound local connections to ensure every moment resonates with your personal travel philosophy.',
       features: [
         'Bespoke curation built from ground zero for every traveler.',
@@ -251,21 +259,21 @@ onMounted(() => {
       </div>
 
       <!-- Tab Content Area -->
-      <div id="b2b-content-area" class="reveal-elem w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <div id="b2b-content-area" class="reveal-elem w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 max-w-7xl mx-auto">
         
         <!-- Mobile: Image moves above content -->
-        <div class="lg:col-span-5 w-full lg:sticky top-28 order-1 lg:order-2">
-          <div class="relative w-full max-w-lg aspect-square rounded-[2rem] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.12)] border bg-[#703e19]/10 border-[#1A1A1A]/10">
-            <!-- Vue Transition for smooth image crossfade -->
-            <transition name="fade" mode="out-in">
-              <img
-                :key="activeB2bContent.image"
-                :src="activeB2bContent.image"
-                alt="B2B Visual"
-                class="w-full h-full object-cover"
-              />
-            </transition>
-          </div>
+        <div class="lg:col-span-5 w-full self-start lg:sticky lg:top-28 order-1 lg:order-2">
+            <div class="relative w-full max-w-lg aspect-square rounded-[2rem] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.12)] border bg-[#703e19]/10 border-[#1A1A1A]/10">
+                <!-- Vue Transition for smooth image crossfade -->
+                <transition name="fade" mode="out-in">
+                    <img
+                        :key="activeB2bContent.image"
+                        :src="activeB2bContent.image"
+                        alt="B2B Visual"
+                        class="w-full h-full object-cover"
+                    />
+                </transition>
+            </div>
         </div>
 
         <!-- Content (Left side on Desktop) -->
@@ -273,40 +281,39 @@ onMounted(() => {
           <!-- Transition Wrapper for smooth text swapping -->
           <transition name="fade-up" mode="out-in">
             <div :key="activeB2bTabId" class="w-full flex flex-col">
-            <h3 class="reveal-elem flex items-center gap-4 mb-2 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#1A1A1A]/70 uppercase">
-                <span>{{ servicesData.b2b.header.eyebrow }}</span>
-                <span class="w-12 h-[1px] bg-[#1A1A1A]/20"></span>
-            </h3>
-              <h2 class="text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-[1.15] text-[#703e19] mb-5 font-serif font-light">
-                {{ activeB2bContent.titleMain }} <span class="text-[#C47551] italic font-normal capitalize">{{ activeB2bContent.titleHighlight }}</span>
-              </h2>
-              
-              <p class="font-sans text-sm md:text-base lg:text-[15px] leading-[1.85] text-[#1A1A1A]/85 font-light mb-10 max-w-2xl">
-                {{ activeB2bContent.paragraph }}
-              </p>
+                <h3 class="reveal-elem flex items-center gap-4 mb-1 md:mb-2 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#1A1A1A]/70 uppercase">
+                    <span>{{ activeB2bContent.eyebrow }}</span>
+                    <span class="w-12 h-[1px] bg-[#1A1A1A]/20"></span>
+                </h3>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-[1.15] text-[#703e19] mb-5 font-serif font-light">
+                    {{ activeB2bContent.titleMain }} <span class="text-[#C47551] italic font-normal capitalize">{{ activeB2bContent.titleHighlight }}</span>
+                </h2>
+                
+                <p class="font-sans text-sm md:text-base lg:text-[15px] leading-[1.85] text-[#1A1A1A]/85 font-light mb-10 max-w-2xl">
+                    {{ activeB2bContent.paragraph }}
+                </p>
 
-              <!-- Features List -->
-              <h4 class="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#703e19] mb-4">Core Features</h4>
-              <ul class="flex flex-col gap-4 mb-10">
-                <li v-for="(feat, i) in activeB2bContent.features" :key="i" class="flex items-start gap-3.5">
-                  <div class="w-4 h-4 rounded-full bg-[#703e19]/10 flex items-center justify-center shrink-0 mt-1">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5 text-[#703e19]"><polyline points="20 6 9 17 4 12"/></svg>
-                  </div>
-                  <span class="font-sans text-sm md:text-[15px] text-[#1A1A1A]/80 font-light leading-[1.7]">{{ feat }}</span>
-                </li>
-              </ul>
+                <!-- Features List -->
+                <h4 class="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#703e19] mb-4">Core Features</h4>
+                <ul class="flex flex-col gap-4 mb-10">
+                    <li v-for="(feat, i) in activeB2bContent.features" :key="i" class="flex items-start gap-3.5">
+                        <div class="w-4 h-4 rounded-full bg-[#703e19]/10 flex items-center justify-center shrink-0 mt-1">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5 text-[#703e19]"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <span class="font-sans text-sm md:text-[15px] text-[#1A1A1A]/80 font-light leading-[1.7]">{{ feat }}</span>
+                    </li>
+                </ul>
 
-              <!-- My Experience List -->
-              <h4 class="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#703e19] mb-4">Our Experience</h4>
-              <ul class="flex flex-col gap-4">
-                <li v-for="(exp, i) in activeB2bContent.experience" :key="i" class="flex items-start gap-3.5">
-                  <div class="w-4 h-4 flex items-center justify-center shrink-0 mt-1">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#C47551]"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                  </div>
-                  <span class="font-sans text-sm md:text-[15px] text-[#1A1A1A]/80 font-light leading-[1.7]">{{ exp }}</span>
-                </li>
-              </ul>
-              
+                <!-- My Experience List -->
+                <h4 class="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#703e19] mb-4">Our Experience</h4>
+                <ul class="flex flex-col gap-4">
+                    <li v-for="(exp, i) in activeB2bContent.experience" :key="i" class="flex items-start gap-3.5">
+                        <div class="w-4 h-4 flex items-center justify-center shrink-0 mt-1">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#C47551]"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <span class="font-sans text-sm md:text-[15px] text-[#1A1A1A]/80 font-light leading-[1.7]">{{ exp }}</span>
+                    </li>
+                </ul>
             </div>
           </transition>
         </div>
@@ -325,53 +332,61 @@ onMounted(() => {
         <h2 class="reveal-elem w-full text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-[1.15] text-[#703e19] mb-4 font-serif font-light">
           {{ servicesData.experienceDesign.header.titleMain }} <span class="font-normal text-[#C47551] italic capitalize">{{ servicesData.experienceDesign.header.titleHighlight }}.</span>
         </h2>
+        <p class="reveal-elem w-full font-sans text-sm md:text-base lg:text-[15px] leading-[1.85] text-[#1A1A1A]/85 font-light">
+          {{ servicesData.experienceDesign.header.intro }}
+        </p>
       </div>
 
       <!-- Content Area -->
-      <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+      <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 max-w-7xl mx-auto">
         
         <!-- Mobile: Image moves above content -->
-        <div class="reveal-elem lg:col-span-5 w-full lg:sticky top-28 order-1 flex justify-center lg:justify-normal lg:order-2">
-          <div class="relative w-full max-w-lg aspect-square rounded-[2rem] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-[#1A1A1A]/10">
-            <img
-              :src="servicesData.experienceDesign.content.image"
-              alt="Experience Design"
-              class="w-full h-full object-cover"
-            />
-          </div>
+        <div class="reveal-elem lg:col-span-5 w-full flex justify-start lg:justify-start lg:sticky lg:top-28 order-1 lg:order-2 self-start">
+            <div class="relative w-full max-w-lg aspect-square rounded-[2rem] overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-[#1A1A1A]/10">
+                <img
+                    :src="servicesData.experienceDesign.content.image"
+                    alt="Experience Design"
+                    class="w-full h-full object-cover"
+                />
+            </div>
         </div>
-
         <!-- Content (Left side on Desktop) -->
         <div class="reveal-elem lg:col-span-7 flex flex-col items-start text-left order-2 lg:order-1">
+
+            <h3 class="reveal-elem flex items-center gap-4 mb-1 md:mb-2 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#1A1A1A]/70 uppercase">
+                <span>{{ servicesData.experienceDesign.content.eyebrow }}</span>
+                <span class="w-12 h-[1px] bg-[#1A1A1A]/20"></span>
+            </h3>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-[1.15] text-[#703e19] mb-5 font-serif font-light">
+                {{ servicesData.experienceDesign.content.titleMain }} <span class="text-[#C47551] italic font-normal capitalize">{{ servicesData.experienceDesign.content.titleHighlight }}</span>
+            </h2>
           
-          <p class="font-sans text-sm md:text-base lg:text-[15px] leading-[1.85] text-[#1A1A1A]/85 font-light mb-10 max-w-2xl">
-            {{ servicesData.experienceDesign.content.paragraph }}
-          </p>
+            <p class="font-sans text-sm md:text-base lg:text-[15px] leading-[1.85] text-[#1A1A1A]/85 font-light mb-10 max-w-2xl">
+                {{ servicesData.experienceDesign.content.paragraph }}
+            </p>
 
-          <!-- Features List -->
-          <h4 class="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#703e19] mb-4">Core Philosophy</h4>
-          <ul class="flex flex-col gap-4 mb-10">
-            <li v-for="(feat, i) in servicesData.experienceDesign.content.features" :key="'ed-feat-'+i" class="flex items-start gap-3.5">
-              <div class="w-4 h-4 rounded-full bg-[#703e19]/10 flex items-center justify-center shrink-0 mt-1">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5 text-[#703e19]"><polyline points="20 6 9 17 4 12"/></svg>
-              </div>
-              <span class="font-sans text-sm md:text-[15px] text-[#1A1A1A]/80 font-light leading-[1.7]">{{ feat }}</span>
-            </li>
-          </ul>
+            <!-- Features List -->
+            <h4 class="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#703e19] mb-4">Core Philosophy</h4>
+            <ul class="flex flex-col gap-4 mb-10">
+                <li v-for="(feat, i) in servicesData.experienceDesign.content.features" :key="'ed-feat-'+i" class="flex items-start gap-3.5">
+                    <div class="w-4 h-4 rounded-full bg-[#703e19]/10 flex items-center justify-center shrink-0 mt-1">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="w-2.5 h-2.5 text-[#703e19]"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <span class="font-sans text-sm md:text-[15px] text-[#1A1A1A]/80 font-light leading-[1.7]">{{ feat }}</span>
+                </li>
+            </ul>
 
-          <!-- My Experience List -->
-          <h4 class="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#703e19] mb-4">The Designer Edge</h4>
-          <ul class="flex flex-col gap-4">
-            <li v-for="(exp, i) in servicesData.experienceDesign.content.experience" :key="'ed-exp-'+i" class="flex items-start gap-3.5">
-              <div class="w-4 h-4 flex items-center justify-center shrink-0 mt-1">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#C47551]"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-              </div>
-              <span class="font-sans text-sm md:text-[15px] text-[#1A1A1A]/80 font-light leading-[1.7]">{{ exp }}</span>
-            </li>
-          </ul>
-
+            <!-- My Experience List -->
+            <h4 class="font-sans text-[11px] font-bold uppercase tracking-[0.2em] text-[#703e19] mb-4">The Designer Edge</h4>
+            <ul class="flex flex-col gap-4">
+                <li v-for="(exp, i) in servicesData.experienceDesign.content.experience" :key="'ed-exp-'+i" class="flex items-start gap-3.5">
+                    <div class="w-4 h-4 flex items-center justify-center shrink-0 mt-1">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#C47551]"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <span class="font-sans text-sm md:text-[15px] text-[#1A1A1A]/80 font-light leading-[1.7]">{{ exp }}</span>
+                </li>
+            </ul>
         </div>
-
       </div>
     </div>
 

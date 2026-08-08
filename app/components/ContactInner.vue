@@ -214,7 +214,7 @@ onMounted(() => {
 
           <!-- Subtle Corner Floating Badge -->
           <div class="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-[#F9F8F6] flex items-center gap-4">
-            <div class="w-10 h-10 rounded-full bg-[#703e19] text-[#F9F8F6] flex items-center justify-center shrink-0 shadow-sm">
+            <div class="w-10 h-10 rounded-full bg-[#c47551] text-[#F9F8F6] flex items-center justify-center shrink-0 shadow-sm">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
             <div class="flex flex-col">
