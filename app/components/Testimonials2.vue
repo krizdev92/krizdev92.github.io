@@ -40,7 +40,7 @@ const testimonialsData = {
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300",
       designation: "Photographer, Melbourne, Australia",
       category: "Nature & Trails",
-      accentColor: "#673b1c", // Deep Ocean
+      accentColor: "#146855", // Moss Green
       quote: "From misty mountains to hidden trails, every day felt like an adventure crafted just for me. The landscapes were breathtaking, but the quiet moments in nature became my favorite memories.",
       buttonText: "Watch Video",
       buttonUrl: "/testimonials/"
@@ -122,27 +122,27 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section ref="sectionRef" class="relative w-full pt-10 md:pt-14 pb-4 md:pb-8 bg-[#F2EFEC] flex flex-col overflow-hidden">
+  <section ref="sectionRef" class="relative w-full pt-10 md:pt-14 pb-4 md:pb-8 bg-[#f9f8f6] flex flex-col overflow-hidden">
     
     <!-- ================= SECTION HEADER ================= -->
-    <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-16 lg:px-24 flex justify-center mb-8 lg:mb-12">
+    <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-16 lg:px-24 flex justify-center mb-6 md:mb-8">
       <div class="max-w-4xl flex flex-col items-center text-center">
         
-        <h3 class="testi-header-elem opacity-0 flex items-center justify-center gap-4 md:gap-6 mb-3 md:mb-4 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#1A1A1A]/70 uppercase w-full">
+        <h3 class="testi-header-elem opacity-0 flex items-center justify-center gap-4 md:gap-6 mb-1 md:mb-2 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#1A1A1A]/70 uppercase w-full">
           <span class="w-8 md:w-16 h-[1px] bg-[#1A1A1A]/20"></span>
           <span>{{ testimonialsData.header.eyebrow }}</span>
           <span class="w-8 md:w-16 h-[1px] bg-[#1A1A1A]/20"></span>
         </h3>
 
         <h4 
-          class="testi-header-elem opacity-0 text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] text-[#1A1A1A] mb-4"
+          class="testi-header-elem opacity-0 text-3xl lg:text-4xl tracking-normal leading-[1.2] text-[#703e19] capitalize mb-3 md:mb-4"
           style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;"
         >
           <span class="font-normal">{{ testimonialsData.header.titleMain }}</span><br />
-          <span class="font-normal leading-tight text-[#673b1c] italic capitalize">{{ testimonialsData.header.titleItalic }}</span>
+          <span class="font-normal text-[#c47551] italic">{{ testimonialsData.header.titleItalic }}</span>
         </h4>
 
-        <p class="testi-header-elem opacity-0 font-sans text-sm md:text-base lg:text-[15px] leading-[1.8] text-[#1A1A1A]/80 font-light max-w-xl">
+        <p class="testi-header-elem opacity-0 font-sans text-sm md:text-base lg:text-[15px] leading-relaxed text-[#1A1A1A] font-light max-w-2xl">
           {{ testimonialsData.header.intro }}
         </p>
 
@@ -235,13 +235,13 @@ onUnmounted(() => {
 
       <!-- Custom Adaptive Swiper Controls -->
       <div class="flex items-center justify-center gap-6 mt-6 md:mt-10 relative w-full px-4 z-10">
-        <button class="testi-prev flex w-11 h-11 md:w-13 md:h-13 rounded-full border border-[#1A1A1A]/20 bg-white items-center justify-center text-[#1A1A1A] hover:border-[#673b1c] hover:text-[#673b1c] transition-colors shadow-sm cursor-pointer shrink-0">
+        <button class="testi-prev flex w-11 h-11 md:w-13 md:h-13 rounded-full border border-[#1A1A1A]/20 bg-white items-center justify-center text-[#1A1A1A] hover:border-[#703e19] hover:text-[#703e19] transition-colors shadow-sm cursor-pointer shrink-0">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 md:w-5 md:h-5"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
         </button>
         
         <div class="testi-pagination flex justify-center gap-2.5 items-center !w-auto"></div>
 
-        <button class="testi-next flex w-11 h-11 md:w-13 md:h-13 rounded-full border border-[#1A1A1A]/20 bg-white items-center justify-center text-[#1A1A1A] hover:border-[#673b1c] hover:text-[#673b1c] transition-colors shadow-sm cursor-pointer shrink-0">
+        <button class="testi-next flex w-11 h-11 md:w-13 md:h-13 rounded-full border border-[#1A1A1A]/20 bg-white items-center justify-center text-[#1A1A1A] hover:border-[#703e19] hover:text-[#703e19] transition-colors shadow-sm cursor-pointer shrink-0">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 md:w-5 md:h-5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
         </button>
       </div>
@@ -252,10 +252,10 @@ onUnmounted(() => {
     <div class="w-full mt-2 md:mt-6 pt-2 flex flex-col items-center gap-8 md:gap-10 relative z-20 testi-cta-elem opacity-0">
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-[1px] h-10 md:h-12 bg-[#673b1c]/20 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-full bg-[#673b1c] animate-scroll-drop"></div>
+        <div class="w-[1px] h-10 md:h-12 bg-[#703e19]/20 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full bg-[#704e19] animate-scroll-drop"></div>
         </div>
-        <div class="w-1.5 h-1.5 rounded-full bg-[#673b1c]"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#703e19]"></div>
       </div>
     </div>
 

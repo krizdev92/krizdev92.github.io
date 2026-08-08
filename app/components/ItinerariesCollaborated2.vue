@@ -151,6 +151,22 @@ onMounted(() => {
     { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', immediateRender: true },
     "-=0.4" 
   )
+
+  // 5. Mobile Swipe Indicator (Fades in, waits 3s, fades out)
+  .fromTo('.mobile-swipe-indicator', 
+    { opacity: 0, scale: 0.8, x: 20 },
+    { 
+      opacity: 1, 
+      scale: 1,
+      x: 0,
+      duration: 0.6, 
+      yoyo: true, 
+      repeat: 1, 
+      repeatDelay: 2,
+      ease: 'power2.inOut'
+    },
+    "-=0.2"
+  )
 })
 </script>
 
@@ -167,17 +183,12 @@ onMounted(() => {
           <span>{{ itineraryColData.header.eyebrow }}</span>
           <span class="w-8 md:w-16 h-[1px] bg-[#F9F8F6]/20"></span>
         </h3>
-        <h4 class="itin-coll-header-elem text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] text-[#F9F8F6] mb-3 md:mb-4" style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;">
+        <h4 class="itin-coll-header-elem text-3xl lg:text-4xl tracking-normal leading-[1.2] text-[#f9f8f6] capitalize mb-3 md:mb-4" style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;">
           <span class="font-normal" v-html="itineraryColData.header.titleMain"></span>
-          <span class="font-normal leading-tight text-[#C47551] italic"><br />{{ itineraryColData.header.titleItalic }}</span>
+          <span class="font-normal text-[#C47551] italic"><br />{{ itineraryColData.header.titleItalic }}</span>
         </h4>
-        <!-- <div class="itin-coll-header-elem flex flex-wrap items-center justify-center gap-3 md:gap-4 text-[10px] md:text-[11px] font-sans tracking-[0.2em] leading-3 text-[#F9F8F6]/70 uppercase w-full mb-3 md:mb-4">
-          <template v-for="(subtitle, index) in itineraryColData.header.subtitles" :key="index">
-            <span>{{ subtitle }}</span>
-            <span v-if="index < itineraryColData.header.subtitles.length - 1" class="w-[1px] h-3.5 bg-[#F9F8F6]/20"></span>
-          </template>
-        </div> -->
-        <p class="itin-coll-header-elem font-sans text-sm md:text-[15px] text-[#F9F8F6]/70 font-light leading-relaxed max-w-2xl">
+
+        <p class="itin-coll-header-elem font-sans text-sm md:text-[15px] text-[#F9F8F6]/80 font-light leading-relaxed max-w-2xl">
           {{ itineraryColData.categoryGroup.intro }}
         </p>
       </div>
@@ -186,11 +197,12 @@ onMounted(() => {
     <!-- ================= CATEGORY LISTINGS ================= -->
     <div class="relative z-10 w-full max-w-[90rem] mx-auto px-0 md:px-8 lg:px-12 xl:px-16 flex flex-col gap-4 md:gap-6">
       
-      <div :id="itineraryColData.categoryGroup.id" class="itin-coll-group-elem w-full flex flex-col mb-2 md:mb-4">
+      <!-- ADDED 'relative' to this wrapper -->
+      <div :id="itineraryColData.categoryGroup.id" class="itin-coll-group-elem w-full flex flex-col mb-2 md:mb-4 relative">
 
         <!-- Grid Container -->
         <div 
-          class="flex md:grid overflow-x-auto md:overflow-visible hide-scrollbar snap-x snap-mandatory md:snap-none md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 px-6 md:px-0 pb-6 pt-2 relative z-10 cursor-grab md:cursor-auto"
+          class="flex sm:grid overflow-x-auto sm:overflow-visible hide-scrollbar snap-x snap-mandatory sm:snap-none sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 px-6 md:px-0 pb-6 pt-2 relative z-10 cursor-grab sm:cursor-auto"
           @mousedown="onMouseDown"
           @mouseleave="onMouseLeave"
           @mouseup="onMouseUpOrLeave"
@@ -201,7 +213,7 @@ onMounted(() => {
             :key="`${itineraryColData.categoryGroup.id}-${idx}`"
             :to="itin.url" 
             @click="preventClickIfDragged"
-            class="group block relative scroll-snap-align-start shrink-0 rounded-3xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-500 bg-[#1A1A1A] w-[85vw] md:w-auto aspect-[4/3] ring-1 ring-[#F9F8F6]/10 transform hover:-translate-y-1"
+            class="group block relative scroll-snap-align-start shrink-0 rounded-3xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] transition-all duration-500 bg-[#1A1A1A] w-[85vw] sm:w-auto aspect-[4/3] ring-1 ring-[#F9F8F6]/10 transform hover:-translate-y-1"
             @dragstart.prevent
           >
             <img :src="itin.img" :alt="itin.title" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" @dragstart.prevent />
@@ -212,7 +224,7 @@ onMounted(() => {
             <div class="absolute top-4 md:top-5 left-4 right-4 md:left-5 md:right-5 flex justify-between items-start z-20 pointer-events-none">
               <!-- Left Side Badges: Square Collaboration Icon + Featured Label -->
               <div class="flex items-center gap-2">
-                <div v-if="itineraryColData.header.icon" class="w-6 h-6 md:w-7 md:h-7 bg-[#121415]/80 backdrop-blur-md text-[#C47551] border border-[#C47551]/30 rounded-sm shadow-sm flex items-center justify-center p-1.5 shrink-0" v-html="itineraryColData.header.icon"></div>
+                <div v-if="itineraryColData.header.icon" class="w-6 h-6 md:w-7 md:h-7 bg-[#673b1c] text-[#F9F8F6] border border-[#C47551]/30 rounded-sm shadow-sm flex items-center justify-center p-1.5 shrink-0" v-html="itineraryColData.header.icon"></div>
                 <span class="bg-[#F6BD03] text-[#1A1A1A] text-[9px] md:text-[10px] font-bold uppercase tracking-widest px-2.5 py-1.5 rounded-sm shadow-sm">Featured</span>
               </div>
               <!-- Right Side Badge: Days -->
@@ -242,6 +254,19 @@ onMounted(() => {
             </div>
           </NuxtLink>
         </div>
+
+        <!-- Temporary Swipe Indicator -->
+        <div 
+          v-if="itineraryColData.categoryGroup.items.length > 1"
+          class="mobile-swipe-indicator sm:hidden absolute right-0 top-0 bottom-6 w-24 bg-gradient-to-l from-[#F9F8F6]/30 via-[#F9F8F6]/15 to-transparent pointer-events-none flex items-center justify-end pr-2 md:pr-4 opacity-0 z-20"
+        >
+          <div class="w-8 h-8 rounded-full bg-[#703e19]/5 backdrop-blur-md flex items-center justify-center animate-swipe-hint shadow-sm border border-[#1A1A1A]/10">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#703e19] ml-0.5">
+              <path d="M9 18l6-6-6-6"></path>
+            </svg>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -285,5 +310,14 @@ onMounted(() => {
 }
 .animate-scroll-drop {
   animation: scrollDrop 2s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+}
+
+@keyframes swipeHint {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+.animate-swipe-hint {
+  animation: swipeHint 1s ease-in-out infinite;
 }
 </style>

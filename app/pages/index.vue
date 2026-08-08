@@ -1,6 +1,4 @@
 <script setup>
-import ItinerariesTravelYourWay2 from '~/components/ItinerariesTravelYourWay2.vue';
-import Process from '~/components/Process.vue';
 
 // Setting dynamic SEO meta tags for the Home page
 useHead({
@@ -9,6 +7,42 @@ useHead({
     { name: 'description', content: 'Meaningful journeys. Thoughtfully crafted. Deeply connected.' }
   ]
 })
+
+const WP_GRAPHQL_ENDPOINT = 'http://travel-app-backend.local/graphql'
+
+const query = `
+  query GetHomePage {
+    page(id: "home", idType: URI) {
+      homepageBanner {
+        title
+        buttonText
+        buttonUrl
+        galleryImages {
+          sourceUrl
+        }
+      }
+    }
+  }
+`
+
+const { data } = await useFetch(WP_GRAPHQL_ENDPOINT, {
+  method: 'POST',
+  body: { query }
+})
+
+// Format GraphQL response into standard Banner format
+const homepageBannerData = computed(() => {
+  const banner = data.value?.data?.page?.homepageBanner
+  if (!banner) return null
+
+  return {
+    title: banner.title,
+    buttonText: banner.buttonText,
+    buttonUrl: banner.buttonUrl,
+    images: banner.galleryImages?.map(img => img.sourceUrl) || []
+  }
+})
+
 </script>
 
 <template>
@@ -29,8 +63,7 @@ useHead({
     <Testimonials2 />
     <Blog />
     <Community />
-    <Banner />
-    
-    <!-- Future modular sections (like Featured Itineraries or Our Story) will seamlessly stack below here -->
+    <!-- Pass dynamic data directly; if GraphQL fails or fields are empty, defaults take over -->
+    <Banner :banner-data="homepageBannerData" />
   </main>
 </template>

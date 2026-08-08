@@ -111,24 +111,24 @@ onUnmounted(() => {
   <section ref="sectionRef" class="relative w-full pt-10 md:pt-14 pb-4 md:pb-8 bg-[#2a2a2a] flex flex-col overflow-hidden">
     
     <!-- ================= SECTION HEADER ================= -->
-    <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-16 lg:px-24 flex justify-center mb-12 md:mb-16">
+    <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-16 lg:px-24 flex justify-center mb-6 md:mb-8">
       <div class="max-w-4xl flex flex-col items-center text-center">
         
-        <h3 class="blog-header-elem opacity-0 flex items-center justify-center gap-4 md:gap-6 mb-3 md:mb-4 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#F9F8F6]/70 uppercase w-full">
+        <h3 class="blog-header-elem opacity-0 flex items-center justify-center gap-4 md:gap-6 mb-1 md:mb-2 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#F9F8F6]/70 uppercase w-full">
           <span class="w-8 md:w-16 h-[1px] bg-[#F9F8F6]/20"></span>
           <span>{{ blogData.header.eyebrow }}</span>
           <span class="w-8 md:w-16 h-[1px] bg-[#F9F8F6]/20"></span>
         </h3>
 
         <h4 
-          class="blog-header-elem opacity-0 text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] text-[#F9F8F6] mb-4"
+          class="blog-header-elem opacity-0 text-3xl lg:text-4xl tracking-normal leading-[1.2] text-[#f9f8f6] capitalize mb-3 md:mb-4"
           style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;"
         >
           <span class="font-normal">{{ blogData.header.titleMain }}</span><br />
-          <span class="font-normal leading-tight text-[#C47551] italic capitalize">{{ blogData.header.titleItalic }}</span>
+          <span class="font-normal text-[#C47551] italic">{{ blogData.header.titleItalic }}</span>
         </h4>
 
-        <p class="blog-header-elem opacity-0 font-sans text-sm md:text-base lg:text-[15px] leading-[1.8] text-[#F9F8F6]/70 font-light max-w-xl">
+        <p class="blog-header-elem opacity-0 font-sans text-sm md:text-base lg:text-[15px] leading-relaxed text-[#F9F8F6]/80 font-light max-w-2xl">
           {{ blogData.header.intro }}
         </p>
 

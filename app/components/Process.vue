@@ -153,7 +153,7 @@ onUnmounted(() => {
       <div class="max-w-4xl flex flex-col items-center text-center">
         
         <!-- Element 1: Eyebrow -->
-        <h3 class="process-header-elem flex items-center justify-center gap-4 md:gap-6 mb-3 md:mb-4 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#F9F8F6]/70 uppercase w-full">
+        <h3 class="process-header-elem flex items-center justify-center gap-4 md:gap-6 mb-1 md:mb-2 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#F9F8F6]/70 uppercase w-full">
           <span class="w-8 md:w-16 h-[1px] bg-[#F9F8F6]/20"></span>
           <span>{{ processData.header.eyebrow }}</span>
           <span class="w-8 md:w-16 h-[1px] bg-[#F9F8F6]/20"></span>
@@ -161,15 +161,15 @@ onUnmounted(() => {
 
         <!-- Element 2 & 3: Separated Title for individual stagger -->
         <h4 
-          class="process-header-elem flex flex-col text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] text-[#F9F8F6] mb-4"
+          class="process-header-elem flex flex-col text-3xl lg:text-4xl tracking-tight leading-[1.2] text-[#f9f8f6] capitalize mb-3 md:mb-4"
           style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;"
         >
           <span class="font-normal">{{ processData.header.titleMain }}</span>
-          <span class="font-normal leading-tight text-[#C47551] italic capitalize">{{ processData.header.titleItalic }}</span>
+          <span class="font-normal text-[#C47551] italic">{{ processData.header.titleItalic }}</span>
         </h4>
         
         <!-- Element 4: Intro -->
-        <p class="process-header-elem font-sans text-sm md:text-base lg:text-[15px] leading-[1.8] text-[#F9F8F6]/70 font-light max-w-xl">
+        <p class="process-header-elem font-sans text-sm md:text-base lg:text-[15px] leading-relaxed text-[#F9F8F6]/80 font-light max-w-2xl">
           {{ processData.header.intro }}
         </p>
 
@@ -201,37 +201,37 @@ onUnmounted(() => {
           </div>
 
           <!-- LEFT ALIGNED CARD (Even Index) -->
-          <div v-if="idx % 2 === 0" class="group w-1/2 pr-[70px] xl:pr-[90px] flex justify-end relative z-10">
+          <div v-if="idx % 2 === 0" class="group w-1/2 pr-[60px] xl:pr-[80px] flex justify-end relative z-10">
             <!-- Interconnecting Horizontal Arm -->
             <div class="horizontal-arm absolute right-0 top-1/2 -translate-y-1/2 w-[70px] xl:w-[90px] h-[2px] bg-[#C47551]/50 z-0 origin-right"></div>
             
             <div class="process-card-bg pointer-events-auto bg-[#1A1D1E] w-full max-w-[480px] p-8 rounded-2xl border-y border border-[#F9F8F6]/10 border-r-[#C47551] shadow-xl text-right relative overflow-hidden flex flex-col items-end transition-all duration-500 ease-out group-hover:border-[#C47551]">
               <!-- Watermark -->
-              <div class="card-text-elem absolute bottom-1 left-1 w-32 h-32 text-[#C47551]/10 opacity-5 pointer-events-none" v-html="step.icon"></div>
+              <div class="card-text-elem absolute top-1 left-1 w-28 h-28 text-[#C47551]/10 opacity-5 pointer-events-none" v-html="step.icon"></div>
               
               <div class="relative z-10 flex flex-col items-end">
-                <span class="card-text-elem text-3xl font-serif text-[#C47551] font-medium opacity-90 mb-2">{{ step.num }}</span>
-                <h3 class="card-text-elem text-2xl text-[#F9F8F6] font-normal mb-1" style="font-family: 'Playfair Display', serif;">{{ step.title }}</h3>
-                <span class="card-text-elem text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#C47551] mb-4">{{ step.tagline }}</span>
-                <p class="card-text-elem font-sans text-sm text-[#F9F8F6]/70 font-light leading-[1.8]">{{ step.desc }}</p>
+                <span class="card-text-elem text-2xl font-serif text-[#C47551] font-medium opacity-90 mb-2">{{ step.num }}</span>
+                <h3 class="card-text-elem text-xl text-[#F9F8F6] font-normal mb-1" style="font-family: 'Playfair Display', serif;">{{ step.title }}</h3>
+                <span class="card-text-elem text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#C47551] mb-3">{{ step.tagline }}</span>
+                <p class="card-text-elem font-sans text-sm text-[#F9F8F6]/80 font-light leading-[1.8]">{{ step.desc }}</p>
               </div>
             </div>
           </div>
 
           <!-- RIGHT ALIGNED CARD (Odd Index) -->
-          <div v-else class="group w-1/2 ml-auto pl-[70px] xl:pl-[90px] flex justify-start relative z-10">
+          <div v-else class="group w-1/2 ml-auto pl-[60px] xl:pl-[80px] flex justify-start relative z-10">
             <!-- Interconnecting Horizontal Arm -->
             <div class="horizontal-arm absolute left-0 top-1/2 -translate-y-1/2 w-[70px] xl:w-[90px] h-[2px] bg-[#C47551]/50 z-0 origin-left"></div>
             
             <div class="process-card-bg pointer-events-auto bg-[#1A1D1E] w-full max-w-[480px] p-8 rounded-2xl border border-[#F9F8F6]/10 border-l-[#C47551] shadow-xl text-left relative overflow-hidden flex flex-col items-start transition-all duration-300 ease-out group-hover:border-[#C47551]">
               <!-- Watermark -->
-              <div class="card-text-elem absolute bottom-1 right-1 w-32 h-32 text-[#C47551]/10 opacity-5 pointer-events-none" v-html="step.icon"></div>
+              <div class="card-text-elem absolute top-1 right-1 w-32 h-32 text-[#C47551]/10 opacity-5 pointer-events-none" v-html="step.icon"></div>
               
               <div class="relative z-10 flex flex-col items-start">
-                <span class="card-text-elem text-3xl font-serif text-[#C47551] font-medium opacity-90 mb-2">{{ step.num }}</span>
-                <h3 class="card-text-elem text-2xl text-[#F9F8F6] font-normal mb-1" style="font-family: 'Playfair Display', serif;">{{ step.title }}</h3>
-                <span class="card-text-elem text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#C47551] mb-4">{{ step.tagline }}</span>
-                <p class="card-text-elem font-sans text-sm text-[#F9F8F6]/70 font-light leading-[1.8]">{{ step.desc }}</p>
+                <span class="card-text-elem text-2xl font-serif text-[#C47551] font-medium opacity-90 mb-2">{{ step.num }}</span>
+                <h3 class="card-text-elem text-xl text-[#F9F8F6] font-normal mb-1" style="font-family: 'Playfair Display', serif;">{{ step.title }}</h3>
+                <span class="card-text-elem text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#C47551] mb-3">{{ step.tagline }}</span>
+                <p class="card-text-elem font-sans text-sm text-[#F9F8F6]/80 font-light leading-[1.8]">{{ step.desc }}</p>
               </div>
             </div>
           </div>
@@ -278,7 +278,7 @@ onUnmounted(() => {
               <div class="flex items-center justify-between mb-1.5 w-full">
                 <div class="flex items-center gap-3">
                   <span class="card-text-elem text-[#C47551] font-bold font-sans text-sm md:text-base">{{ step.num }}</span>
-                  <h3 class="card-text-elem text-[#F9F8F6] text-lg md:text-xl font-normal" style="font-family: 'Playfair Display', serif;">{{ step.title }}</h3>
+                  <h3 class="card-text-elem text-[#F9F8F6] text-lg md:text-xl font-normal font-serif">{{ step.title }}</h3>
                 </div>
                 <!-- Expansion Angle Chevron -->
                 <div class="text-[#C47551] transition-transform p-1 duration-300 shrink-0 ml-2 border border-[#C47551] rounded-full" :class="activeAccordion === idx ? 'rotate-180' : 'rotate-0'">

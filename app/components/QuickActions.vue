@@ -21,6 +21,7 @@ onMounted(() => {
       opacity: 1, 
       scale: 1, 
       duration: 0.6, 
+      delay: 1.2,
       ease: 'back.out(1.2)' 
     })
     

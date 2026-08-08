@@ -117,11 +117,11 @@ onMounted(() => {
 
         <!-- Main Name -->
         <h4 
-          class="about-header-elem text-3xl md:text-4xl lg:text-5xl tracking-tight text-[#1A1A1A] mb-3 md:mb-4"
+          class="about-header-elem text-3xl lg:text-4xl tracking-normal leading-[1.2] text-[#703e19] capitalize mb-3 md:mb-4"
           style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;"
         >
-        <span class="font-normal leading-tight italic capitalize ">{{ aboutSectionData.header.greeting }}&nbsp;</span>
-        <span class="font-normal leading-tight text-[#673b1c]">{{ aboutSectionData.header.name }}</span>
+        <span class="font-normal italic">{{ aboutSectionData.header.greeting }}&nbsp;</span>
+        <span class="font-normal text-[#c47551]">{{ aboutSectionData.header.name }}</span>
         </h4>
 
         <!-- Subtitles -->
@@ -156,23 +156,23 @@ onMounted(() => {
         <p 
           v-for="(para, index) in aboutSectionData.content.paragraphs" 
           :key="index"
-          class="about-content-elem font-sans text-sm md:text-base lg:text-[15px] indent-4 leading-[1.8] text-[#1A1A1A]/90 font-light max-w-xl mx-auto lg:mx-0"
+          class="about-content-elem font-sans text-sm md:text-base lg:text-[15px] indent-4 leading-[1.8] text-[#1A1A1A] font-light max-w-xl mx-auto lg:mx-0"
           :class="index === aboutSectionData.content.paragraphs.length - 1 ? 'mb-8' : 'mb-5'"
         >
           {{ para }}
         </p>
 
         <!-- Cursive Accent Quote Box (Matching Reference Layout) -->
-        <div class="about-content-elem mx-auto lg:mx-0 relative w-full max-w-xl bg-[#673b1c]/5 border-l-4 border-l-[#673b1c]/70 px-2 md:px-4 py-1.5 md:py-3 rounded-r-lg mb-6 md:mb-8 flex flex-col items-start text-left">
+        <div class="about-content-elem mx-auto lg:mx-0 relative w-full max-w-xl bg-[#703e19]/5 border-l-4 border-l-[#703e19]/70 px-2 md:px-4 py-1.5 md:py-3 rounded-r-lg mb-6 md:mb-8 flex flex-col items-start text-left">
           
           <!-- Left-aligned Quote Icon -->
-          <svg class="absolute z-0 top-2 right-5 w-20 h-20 text-[#673b1c]/10 shrink-0 mt-1 transform rotate-180" viewBox="0 0 24 24" fill="currentColor">
+          <svg class="absolute z-0 top-2 right-5 w-20 h-20 text-[#703e19]/10 shrink-0 mt-1 transform rotate-180" viewBox="0 0 24 24" fill="currentColor">
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.999v10h-9.999z"/>
           </svg>
 
           <div class="flex items-start p-2 w-full">
             <!-- Cursive Accent Text -->
-            <p class="text-2xl md:text-3xl font-semibold text-[#673b1c] leading-relaxed" style="font-family: 'Caveat', cursive;">
+            <p class="text-xl md:text-2xl font-medium text-[#703e19] leading-relaxed tracking-normal indent-4 font-serif italic">
               {{ aboutSectionData.content.cursiveAccent }}
             </p>
           </div>
@@ -212,8 +212,8 @@ onMounted(() => {
     <!-- ================= PART 3: CTA & SCROLL INDICATOR ================= -->
     <div class="relative z-10 w-full pt-4 flex flex-col items-center gap-8 md:gap-10 about-cta-elem">
       
-      <NuxtLink :to="aboutSectionData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#673b1c] transition-colors duration-500 overflow-hidden rounded-sm">
-        <div class="absolute inset-0 bg-[#673b1c] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
+      <NuxtLink :to="aboutSectionData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#703e19] transition-colors duration-500 overflow-hidden rounded-sm">
+        <div class="absolute inset-0 bg-[#703e19] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
         <img :src="aboutSectionData.bottomCta.icon" alt="Icon" class="w-4 h-4 md:w-5 md:h-5 opacity-70 brightness-0 transition-all duration-500 relative z-10 group-hover:invert group-hover:opacity-100" />
         <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#1A1A1A] group-hover:text-white transition-colors duration-500 relative z-10 uppercase">
           {{ aboutSectionData.bottomCta.text }}
@@ -222,10 +222,10 @@ onMounted(() => {
       </NuxtLink>
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-[1px] h-10 md:h-12 bg-[#673b1c]/20 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-full bg-[#673b1c] animate-scroll-drop"></div>
+        <div class="w-[1px] h-10 md:h-12 bg-[#703e19]/20 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full bg-[#703e19] animate-scroll-drop"></div>
         </div>
-        <div class="w-1.5 h-1.5 rounded-full bg-[#673b1c]"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#703e19]"></div>
       </div>
 
     </div>

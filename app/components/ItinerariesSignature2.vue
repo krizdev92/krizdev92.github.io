@@ -152,6 +152,22 @@ onMounted(() => {
     { opacity: 1, y: 0, duration: 0.5, ease: 'power3.out', immediateRender: true },
     "-=0.4" 
   )
+  
+  // 5. Mobile Swipe Indicator (Fades in, waits 3s, fades out)
+  .fromTo('.mobile-swipe-indicator', 
+    { opacity: 0, scale: 0.8, x: 20 },
+    { 
+      opacity: 1, 
+      scale: 1,
+      x: 0,
+      duration: 0.6, 
+      yoyo: true, 
+      repeat: 1, 
+      repeatDelay: 2,
+      ease: 'power2.inOut'
+    },
+    "-=0.2"
+  )
 })
 </script>
 
@@ -166,9 +182,9 @@ onMounted(() => {
           <span>{{ itinerarySigData.header.eyebrow }}</span>
           <span class="w-8 md:w-16 h-[1px] bg-[#1A1A1A]/20"></span>
         </h3>
-        <h4 class="itin-sig-header-elem text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] text-[#1A1A1A] mb-3 md:mb-4" style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;">
+        <h4 class="itin-sig-header-elem text-3xl lg:text-4xl tracking-normal leading-[1.2] text-[#703e19] capitalize mb-3 md:mb-4" style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;">
           <span class="font-normal" v-html="itinerarySigData.header.titleMain"></span>
-          <span class="font-normal leading-tight text-[#673b1c] italic"><br />{{ itinerarySigData.header.titleItalic }}</span>
+          <span class="font-normal text-[#c47551] italic"><br />{{ itinerarySigData.header.titleItalic }}</span>
         </h4>
         <!-- <div class="itin-sig-header-elem flex flex-wrap items-center justify-center gap-3 md:gap-4 text-[10px] md:text-[11px] font-sans tracking-[0.2em] leading-3 text-[#1A1A1A]/80 uppercase w-full mb-4 md:mb-5">
           <template v-for="(subtitle, index) in itinerarySigData.header.subtitles" :key="index">
@@ -176,7 +192,7 @@ onMounted(() => {
             <span v-if="index < itinerarySigData.header.subtitles.length - 1" class="w-[1px] h-3.5 bg-[#1A1A1A]/20"></span>
           </template>
         </div> -->
-        <p class="itin-sig-header-elem font-sans text-sm md:text-[15px] text-[#1A1A1A]/80 font-light leading-relaxed max-w-2xl">
+        <p class="itin-sig-header-elem font-sans text-sm md:text-[15px] text-[#1A1A1A] font-light leading-relaxed max-w-2xl">
           {{ itinerarySigData.categoryGroup.intro }}
         </p>
       </div>
@@ -185,11 +201,12 @@ onMounted(() => {
     <!-- ================= CATEGORY LISTINGS ================= -->
     <div class="relative z-10 w-full max-w-[90rem] mx-auto px-0 md:px-8 lg:px-12 xl:px-16 flex flex-col gap-4 md:gap-6">
       
-      <div :id="itinerarySigData.categoryGroup.id" class="itin-sig-group-elem w-full flex flex-col mb-2 md:mb-4">
+      <!-- ADDED 'relative' to this wrapper so the absolute indicator aligns to it -->
+      <div :id="itinerarySigData.categoryGroup.id" class="itin-sig-group-elem w-full flex flex-col mb-2 md:mb-4 relative">
 
         <!-- Grid Container -->
         <div 
-          class="flex md:grid overflow-x-auto md:overflow-visible hide-scrollbar snap-x snap-mandatory md:snap-none md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 px-6 md:px-0 pb-6 pt-2 relative z-10 cursor-grab md:cursor-auto"
+          class="flex sm:grid overflow-x-auto sm:overflow-visible hide-scrollbar snap-x snap-mandatory sm:snap-none sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8 px-6 md:px-0 pb-6 pt-2 relative z-10 cursor-grab sm:cursor-auto"
           @mousedown="onMouseDown"
           @mouseleave="onMouseLeave"
           @mouseup="onMouseUpOrLeave"
@@ -200,7 +217,7 @@ onMounted(() => {
             :key="`${itinerarySigData.categoryGroup.id}-${idx}`"
             :to="itin.url" 
             @click="preventClickIfDragged"
-            class="group block relative scroll-snap-align-start shrink-0 rounded-3xl overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition-all duration-500 bg-[#1A1A1A] w-[85vw] md:w-auto aspect-[4/3] ring-1 ring-black/5 transform hover:-translate-y-1"
+            class="group block relative scroll-snap-align-start shrink-0 rounded-3xl overflow-hidden shadow-[0_2px_10px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.12)] transition-all duration-500 bg-[#1A1A1A] w-[85vw] sm:w-auto aspect-[4/3] ring-1 ring-black/5 transform hover:-translate-y-1"
             @dragstart.prevent
           >
             <img :src="itin.img" :alt="itin.title" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105" @dragstart.prevent />
@@ -242,13 +259,26 @@ onMounted(() => {
             </div>
           </NuxtLink>
         </div>
+
+        <!-- Temporary Swipe Indicator hidden on tablet/desktop) -->
+        <div 
+          v-if="itinerarySigData.categoryGroup.items.length > 1"
+          class="mobile-swipe-indicator sm:hidden absolute right-0 top-0 bottom-6 w-24 bg-gradient-to-l from-[#F9F8F6]/60 via-[#F9F8F6]/30 to-transparent pointer-events-none flex items-center justify-end pr-2 md:pr-4 opacity-0 z-20"
+        >
+          <div class="w-8 h-8 rounded-full bg-[#703e19]/5 backdrop-blur-md flex items-center justify-center animate-swipe-hint shadow-sm border border-[#1A1A1A]/10">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#703e19] ml-0.5">
+              <path d="M9 18l6-6-6-6"></path>
+            </svg>
+          </div>
+        </div>
+
       </div>
     </div>
 
     <!-- ================= BOTTOM CTA BUTTON & DECORATIVE LINE ================= -->
     <div class="itin-sig-cta-elem w-full mt-2 md:mt-6 pt-2 flex flex-col items-center gap-8 md:gap-10 relative z-10">
-      <NuxtLink :to="itinerarySigData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#673b1c] transition-colors duration-500 overflow-hidden rounded-sm">
-        <div class="absolute inset-0 bg-[#673b1c] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
+      <NuxtLink :to="itinerarySigData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#703e19] transition-colors duration-500 overflow-hidden rounded-sm">
+        <div class="absolute inset-0 bg-[#703e19] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
         <img :src="itinerarySigData.bottomCta.icon" alt="Icon" class="w-4 h-4 md:w-5 md:h-5 opacity-70 brightness-0 transition-all duration-500 relative z-10 group-hover:invert group-hover:opacity-100" />
         <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#1A1A1A] group-hover:text-white transition-colors duration-500 relative z-10 uppercase">
           {{ itinerarySigData.bottomCta.text }}
@@ -256,16 +286,17 @@ onMounted(() => {
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="relative z-10 text-[#1A1A1A] group-hover:text-white transform transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-1"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </NuxtLink>
       <div class="flex flex-col items-center gap-3">
-        <div class="w-[1px] h-10 md:h-12 bg-[#673b1c]/20 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-full bg-[#673b1c] animate-scroll-drop"></div>
+        <div class="w-[1px] h-10 md:h-12 bg-[#703e19]/20 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full bg-[#703e19] animate-scroll-drop"></div>
         </div>
-        <div class="w-1.5 h-1.5 rounded-full bg-[#673b1c]"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#703e19]"></div>
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
+
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -285,4 +316,14 @@ onMounted(() => {
 .animate-scroll-drop {
   animation: scrollDrop 2s cubic-bezier(0.76, 0, 0.24, 1) infinite;
 }
+
+@keyframes swipeHint {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+.animate-swipe-hint {
+  animation: swipeHint 1s ease-in-out infinite;
+}
+
 </style>

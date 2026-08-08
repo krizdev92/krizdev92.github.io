@@ -81,21 +81,21 @@ onMounted(() => {
     <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-16 lg:px-24 flex justify-center mb-10 md:mb-14">
       <div class="max-w-4xl flex flex-col items-center text-center">
         
-        <h3 class="services-header-elem flex items-center justify-center gap-4 md:gap-6 mb-3 md:mb-4 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#1A1A1A]/70 uppercase w-full">
+        <h3 class="services-header-elem flex items-center justify-center gap-4 md:gap-6 mb-1 md:mb-2 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#1A1A1A]/70 uppercase w-full">
           <span class="w-8 md:w-16 h-[1px] bg-[#1A1A1A]/20"></span>
           <span>{{ servicesData.header.eyebrow }}</span>
           <span class="w-8 md:w-16 h-[1px] bg-[#1A1A1A]/20"></span>
         </h3>
 
         <h4 
-          class="services-header-elem text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] text-[#1A1A1A] mb-4"
+          class="services-header-elem text-3xl lg:text-4xl tracking-normal leading-[1.2] text-[#703e19] capitalize mb-3 md:mb-4"
           style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;"
         >
           <span class="font-normal">{{ servicesData.header.titleMain }}</span><br />
-          <span class="font-normal leading-tight text-[#673b1c] italic capitalize">{{ servicesData.header.titleItalic }}</span>
+          <span class="font-normal text-[#c47551] italic">{{ servicesData.header.titleItalic }}</span>
         </h4>
 
-        <p class="services-header-elem font-sans text-sm md:text-base lg:text-[15px] leading-[1.8] text-[#1A1A1A]/80 font-light max-w-xl">
+        <p class="services-header-elem font-sans text-sm md:text-base lg:text-[15px] leading-relaxed text-[#1A1A1A] font-light max-w-2xl">
           {{ servicesData.header.intro }}
         </p>
 
@@ -103,7 +103,7 @@ onMounted(() => {
     </div>
 
     <!-- ================= 2-COLUMN SERVICES LAYOUT ================= -->
-    <div class="w-full max-w-[75rem] mx-auto px-6 sm:px-20 lg:px-12">
+    <div class="w-full max-w-[75rem] mx-auto px-6 sm:px-32 lg:px-12">
       <!-- Flex layout: Stacked < 1024px (lg breakpoint), Side-by-side >= 1024px -->
       <div class="flex flex-col lg:flex-row items-stretch justify-center gap-8 md:gap-10 lg:gap-14">
         
@@ -120,13 +120,13 @@ onMounted(() => {
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 lg:w-80 lg:h-80 opacity-5 text-[#F9F8F6] pointer-events-none transition-transform duration-[1.5s] group-hover:scale-110 group-hover:rotate-6 z-0" v-html="service.icon"></div>
 
           <!-- Card Inner Content (Z-Index 10 ensures it stays above watermark) -->
-          <div class="services-card-content flex flex-col items-center text-center p-8 md:p-12 lg:p-16 h-full w-full relative z-10">
+          <div class="services-card-content flex flex-col items-center text-center p-10 md:p-12 lg:p-14 h-full w-full relative z-10">
             
             <!-- Primary Icon -->
             <div class="w-16 h-16 md:w-20 md:h-20 mb-6 lg:mb-8 text-[#F9F8F6] transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:-translate-y-2 group-hover:scale-110 drop-shadow-sm shrink-0" v-html="service.icon"></div>
             
             <!-- Title -->
-            <h3 class="text-[26px] md:text-3xl lg:text-[34px] leading-tight text-[#F9F8F6] mb-5 shrink-0" style="font-family: 'Noto Serif', serif; font-weight: 400;">
+            <h3 class="text-2xl lg:text-3xl leading-tight text-[#F9F8F6] mb-5 shrink-0" style="font-family: 'Noto Serif', serif; font-weight: 400;">
               {{ service.title }}
             </h3>
             
@@ -134,14 +134,9 @@ onMounted(() => {
             <div class="w-12 h-[1px] bg-[#F9F8F6]/20 mb-6 transition-all duration-700 ease-out group-hover:w-24 group-hover:bg-[#F9F8F6]/50 shrink-0"></div>
             
             <!-- Expanded Description (Flex-grow ensures identical bottom spacing) -->
-            <p class="font-sans text-[14px] md:text-[15px] lg:text-[16px] leading-[1.8] text-[#F9F8F6]/80 font-light flex-grow max-w-[28rem]">
+            <p class="font-sans text-[14px] md:text-[15px] lg:text-[16px] leading-[1.8] text-[#F9F8F6]/80 font-light flex-grow max-w-xl">
               {{ service.description }}
             </p>
-
-            <!-- Subtle "Learn More" Arrow -->
-            <div class="mt-8 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-opacity duration-500 shrink-0">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[#F9F8F6] transform transition-transform duration-500 group-hover:translate-y-1"><path d="M12 5v14m0 0l-6-6m6 6l6-6"></path></svg>
-            </div>
 
           </div>
         </div>
@@ -152,8 +147,8 @@ onMounted(() => {
     <!-- ================= CTA & SCROLL INDICATOR ================= -->
     <div class="w-full mt-10 md:mt-14 pt-4 flex flex-col items-center gap-8 md:gap-10 relative z-20 services-cta-elem">
       
-      <NuxtLink :to="servicesData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#673b1c] transition-colors duration-500 overflow-hidden rounded-sm">
-        <div class="absolute inset-0 bg-[#673b1c] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
+      <NuxtLink :to="servicesData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#703e19] transition-colors duration-500 overflow-hidden rounded-sm">
+        <div class="absolute inset-0 bg-[#703e19] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
         <img :src="servicesData.bottomCta.icon" alt="Icon" class="w-4 h-4 md:w-5 md:h-5 opacity-70 brightness-0 transition-all duration-500 relative z-10 group-hover:invert group-hover:opacity-100" />
         <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#1A1A1A] group-hover:text-white transition-colors duration-500 relative z-10 uppercase">
           {{ servicesData.bottomCta.text }}
@@ -162,10 +157,10 @@ onMounted(() => {
       </NuxtLink>
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-[1px] h-10 md:h-12 bg-[#673b1c]/20 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-full bg-[#673b1c] animate-scroll-drop"></div>
+        <div class="w-[1px] h-10 md:h-12 bg-[#703e19]/20 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full bg-[#703e19] animate-scroll-drop"></div>
         </div>
-        <div class="w-1.5 h-1.5 rounded-full bg-[#673b1c]"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#703e19]"></div>
       </div>
     </div>
 

@@ -107,6 +107,22 @@ onMounted(() => {
     { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
     "-=0.4"
   )
+
+  // 5. Mobile Swipe Indicator (Fades in, waits 3s, fades out)
+  .fromTo('.mobile-swipe-indicator', 
+    { opacity: 0, scale: 0.8, x: 20 },
+    { 
+      opacity: 1, 
+      scale: 1,
+      x: 0,
+      duration: 0.6, 
+      yoyo: true, 
+      repeat: 1, 
+      repeatDelay: 2,
+      ease: 'power2.inOut'
+    },
+    "-=0.2"
+  )
 })
 </script>
 
@@ -117,21 +133,21 @@ onMounted(() => {
     <div class="relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-16 lg:px-24 flex justify-center mb-6 md:mb-8">
       <div class="max-w-4xl flex flex-col items-center text-center">
         
-        <h3 class="impact-header-elem flex items-center justify-center gap-4 md:gap-6 mb-3 md:mb-4 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#1A1A1A]/70 uppercase w-full">
+        <h3 class="impact-header-elem flex items-center justify-center gap-4 md:gap-6 mb-1 md:mb-2 text-[10px] lg:text-[11px] font-sans tracking-[0.3em] text-[#1A1A1A]/70 uppercase w-full">
           <span class="w-8 md:w-16 h-[1px] bg-[#1A1A1A]/20"></span>
           <span>{{ impactData.header.eyebrow }}</span>
           <span class="w-8 md:w-16 h-[1px] bg-[#1A1A1A]/20"></span>
         </h3>
 
         <h4 
-          class="impact-header-elem text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.1] text-[#1A1A1A] mb-4"
+          class="impact-header-elem text-3xl lg:text-4xl tracking-normal leading-[1.2] text-[#703e19] capitalize mb-3 md:mb-4"
           style="font-family: 'Playfair Display', 'Cinzel', 'Optima', serif; font-weight: 300;"
         >
           <span class="font-normal">{{ impactData.header.titleMain }}</span><br />
-          <span class="font-normal leading-tight text-[#673b1c] italic capitalize">{{ impactData.header.titleItalic }}</span>
+          <span class="font-normal text-[#c47551] italic">{{ impactData.header.titleItalic }}</span>
         </h4>
 
-        <p class="impact-header-elem font-sans text-sm md:text-base lg:text-[15px] text-[#1A1A1A]/90 font-light max-w-xl">
+        <p class="impact-header-elem font-sans text-sm md:text-base lg:text-[15px] leading-relaxed text-[#1A1A1A] font-light max-w-2xl">
           {{ impactData.header.intro }}
         </p>
 
@@ -151,7 +167,7 @@ onMounted(() => {
         >
           <!-- Short Title: Font size increased across devices -->
           <span 
-            class="text-[13px] md:text-[14px] lg:text-[15px] font-sans tracking-[0.2em] uppercase font-bold transition-colors duration-500 shrink-0"
+            class="text-[13px] lg:text-[14px] font-sans tracking-[0.2em] uppercase font-bold transition-colors duration-500 shrink-0"
             :class="activeIndex === idx ? 'text-[#1A1A1A]' : 'text-[#1A1A1A]/40 group-hover:text-[#1A1A1A]/70'"
           >
             {{ item.shortTitle }}
@@ -173,7 +189,7 @@ onMounted(() => {
       </div>
 
       <!-- RIGHT COLUMN: Image Display & Delayed Content Overlay -->
-      <div class="impact-image-wrapper w-7/12 lg:w-8/12 flex-grow relative rounded-2xl lg:rounded-[2rem] overflow-hidden shadow-md min-h-[500px] lg:min-h-[600px] xl:min-h-[650px] border border-[#1A1A1A]/5">
+      <div class="impact-image-wrapper w-7/12 lg:w-8/12 flex-grow relative rounded-2xl lg:rounded-[2rem] overflow-hidden shadow-md min-h-[480px] lg:min-h-[560px] border border-[#1A1A1A]/5">
         
         <div 
           v-for="(item, idx) in impactData.items" 
@@ -197,11 +213,11 @@ onMounted(() => {
           <!-- 3. Delayed Content Overlay (Translates up from bottom) -->
           <!-- Slides up over 700ms AFTER a 600ms delay when becoming active. Disappears instantly when inactive. -->
           <div 
-            class="absolute inset-x-0 bottom-0 p-8 lg:p-12 flex flex-col justify-end items-start transform transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
+            class="absolute inset-x-0 bottom-0 p-8 lg:p-10 flex flex-col justify-end items-start transform transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
             :class="activeIndex === idx ? 'translate-y-0 opacity-100 delay-[400ms]' : 'translate-y-8 opacity-0 delay-0'"
           >
             
-            <h3 class="text-[#F9F8F6] font-serif text-3xl lg:text-4xl leading-tight mb-4 whitespace-pre-line drop-shadow-md">
+            <h3 class="text-[#F9F8F6] font-serif text-2xl lg:text-3xl leading-tight mb-4 whitespace-pre-line drop-shadow-md">
               {{ item.longTitle }}
             </h3>
             
@@ -211,7 +227,7 @@ onMounted(() => {
               :class="activeIndex === idx ? 'scale-x-100 delay-[900ms]' : 'scale-x-50 delay-0'"
             ></div>
             
-            <p class="font-sans text-[13px] lg:text-[14px] text-[#F9F8F6]/90 font-light leading-relaxed mb-8 max-w-md drop-shadow-sm">
+            <p class="font-sans text-[13px] lg:text-[14px] text-[#F9F8F6]/90 font-light leading-relaxed max-w-md drop-shadow-sm">
               {{ item.intro }}
             </p>
 
@@ -261,17 +277,22 @@ onMounted(() => {
                 {{ item.intro }}
               </p>
             </div>
-
-            <!-- Embedded Consistent Button (Scaled for Mobile) -->
-            <!-- <div class="group/btn relative inline-flex items-center gap-3 px-5 py-2.5 border border-[#F9F8F6]/40 hover:bg-[#F9F8F6] hover:border-[#F9F8F6] transition-colors duration-500 rounded-sm overflow-hidden w-fit mt-2 pointer-events-auto">
-              <span class="text-[9px] font-sans tracking-[0.2em] text-[#F9F8F6] group-hover/btn:text-[#1A1A1A] font-bold uppercase transition-colors duration-500 relative z-10">
-                Explore Value
-              </span>
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 transform transition-transform duration-500 stroke-[#F9F8F6] group-hover/btn:stroke-[#1A1A1A] group-hover/btn:translate-x-1 relative z-10"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
-            </div> -->
             
           </div>
         </NuxtLink>
+
+                <!-- Temporary Swipe Indicator -->
+        <div 
+          v-if="impactData.items.length > 1"
+          class="mobile-swipe-indicator sm:hidden absolute right-0 top-0 bottom-6 w-24 bg-gradient-to-l from-[#F9F8F6]/60 via-[#F9F8F6]/30 to-transparent pointer-events-none flex items-center justify-end pr-2 md:pr-4 opacity-0 z-20"
+        >
+          <div class="w-8 h-8 rounded-full bg-[#703e19]/5 backdrop-blur-md flex items-center justify-center animate-swipe-hint shadow-sm border border-[#1A1A1A]/10">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#703e19] ml-0.5">
+              <path d="M9 18l6-6-6-6"></path>
+            </svg>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -279,8 +300,8 @@ onMounted(() => {
     <!-- ================= BOTTOM CTA BUTTON & DECORATIVE LINE (Global Standard) ================= -->
     <div class="w-full mt-3 md:mt-8 pt-2 flex flex-col items-center gap-8 md:gap-10 relative z-20 impact-cta-elem">
       
-      <NuxtLink :to="impactData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#673b1c] transition-colors duration-500 overflow-hidden rounded-sm">
-        <div class="absolute inset-0 bg-[#673b1c] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
+      <NuxtLink :to="impactData.bottomCta.url" class="group relative inline-flex items-center gap-4 px-6 md:px-8 py-3 md:py-4 mb-0 border border-[#1A1A1A]/20 hover:border-[#703e19] transition-colors duration-500 overflow-hidden rounded-sm">
+        <div class="absolute inset-0 bg-[#703e19] translate-y-full transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-y-0"></div>
         <img :src="impactData.bottomCta.icon" alt="Icon" class="w-4 h-4 md:w-5 md:h-5 opacity-70 brightness-0 transition-all duration-500 relative z-10 group-hover:invert group-hover:opacity-100" />
         <span class="text-[10px] md:text-[11px] font-sans tracking-[0.2em] text-[#1A1A1A] group-hover:text-white transition-colors duration-500 relative z-10 uppercase">
           {{ impactData.bottomCta.text }}
@@ -289,10 +310,10 @@ onMounted(() => {
       </NuxtLink>
 
       <div class="flex flex-col items-center gap-3">
-        <div class="w-[1px] h-10 md:h-12 bg-[#673b1c]/20 relative overflow-hidden">
-          <div class="absolute top-0 left-0 w-full h-full bg-[#673b1c] animate-scroll-drop"></div>
+        <div class="w-[1px] h-10 md:h-12 bg-[#703e19]/20 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full bg-[#703e19] animate-scroll-drop"></div>
         </div>
-        <div class="w-1.5 h-1.5 rounded-full bg-[#673b1c]"></div>
+        <div class="w-1.5 h-1.5 rounded-full bg-[#703e19]"></div>
       </div>
     </div>
 
@@ -316,5 +337,14 @@ onMounted(() => {
 }
 .animate-scroll-drop {
   animation: scrollDrop 2s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+}
+
+@keyframes swipeHint {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+.animate-swipe-hint {
+  animation: swipeHint 1s ease-in-out infinite;
 }
 </style>
