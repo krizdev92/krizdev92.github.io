@@ -45,8 +45,16 @@ onMounted(() => {
 
   if (expandedSection.value) {
     setTimeout(() => {
-      // If we have a category, scroll to content. If not, scroll to section (tabs).
-      const targetId = activeTywCategory.value ? 'tyw-tab-content' : 'section-travel-your-way'
+      let targetId = ''
+
+      if (expandedSection.value === 'tyw') {
+        // If it's TYW, check if a category is selected or broad section
+        targetId = activeTywCategory.value ? 'tyw-tab-content' : 'section-travel-your-way'
+      } else {
+        // For Signature and Collaborated, point directly to their own IDs
+        targetId = `section-${expandedSection.value}`
+      }
+
       scrollToSection(targetId, -100)
     }, 800)
   }
