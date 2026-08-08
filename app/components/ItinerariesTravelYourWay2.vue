@@ -22,7 +22,7 @@ const itineraryCatData = {
   },
   bottomCta: {
     text: 'Explore Categories',
-    url: '/itineraries',
+    url: '/itineraries/travelyourway',
     icon: '/images/logoart.png',
   },
   travelYourWay: {
@@ -31,7 +31,7 @@ const itineraryCatData = {
     items: [
       {
         title: 'Nature & Wilderness',
-        url: '/',
+        url: '/itineraries/travelyourway/nature',
         // Exactly 99 chars for perfect uniform 3-line layouts
         desc: 'Wander pristine landscapes, ancient forests, and rugged coastlines that inspire deep reconnection.',
         // Mid-tone Emerald/Sage
@@ -42,7 +42,7 @@ const itineraryCatData = {
       },
       {
         title: 'Culture & Heritage',
-        url: '/',
+        url: '/itineraries/travelyourway/culture',
         // Exactly 99 chars
         desc: 'Step into timeless traditions, storied monuments, and living heritage that shape the region\'s soul.',
         // Mid-tone Terracotta
@@ -53,7 +53,7 @@ const itineraryCatData = {
       },
       {
         title: 'Places to Stay',
-        url: '/',
+        url: '/itineraries/travelyourway/stays',
         // Exactly 99 chars
         desc: 'Explore carefully curated stays that complement your journey with comfort, culture, and hospitality.',
         // Mid-tone Slate Blue
@@ -64,7 +64,7 @@ const itineraryCatData = {
       },
       {
         title: 'Offbeat Explorations',
-        url: '/',
+        url: '/itineraries/travelyourway/offbeat',
         // Exactly 99 chars
         desc: 'Venture beyond familiar routes into hidden sanctuaries and rare experiences few travelers ever see.',
         // Mid-tone Amethyst
@@ -75,7 +75,7 @@ const itineraryCatData = {
       },
       {
         title: 'Wellness & Spirit',
-        url: '/',
+        url: '/itineraries/travelyourway/wellness',
         // Exactly 100 chars
         desc: 'Find absolute balance and inner calm through mindful practices, sacred spaces, and holistic healing.',
         // Mid-tone Antique Gold
@@ -86,7 +86,7 @@ const itineraryCatData = {
       },
       {
         title: 'Bespoke Luxury',
-        url: '/',
+        url: '/itineraries/travelyourway/bespoke',
         // Exactly 99 chars
         desc: 'Indulge in carefully curated luxury, exclusive retreats, and sophisticated comfort at every moment.',
         // Mid-tone Oceanic Teal
@@ -227,7 +227,7 @@ onMounted(() => {
       repeatDelay: 2,
       ease: 'power2.inOut'
     },
-    "-=0.2"
+    "-=0.7"
   )
 })
 </script>
@@ -366,6 +366,7 @@ onMounted(() => {
         <div class="w-1.5 h-1.5 rounded-full bg-[#703e19]"></div>
       </div>
     </div>
+    
   </section>
 </template>
 

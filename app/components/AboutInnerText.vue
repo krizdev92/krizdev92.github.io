@@ -181,7 +181,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section ref="mainContainerRef" class="w-full bg-[#F9F8F6] px-6 sm:px-10 md:px-16 lg:px-24 py-4 md:py-6 flex flex-col lg:flex-row relative gap-12 lg:gap-16">
+  <section ref="mainContainerRef" class="w-full bg-[#F9F8F6] px-6 sm:px-10 md:px-16 lg:px-24 pt-4 md:pt-6 pb-8 md:pb-10 flex flex-col lg:flex-row relative gap-12 lg:gap-16">
     
     <!-- ================= MOBILE / TABLET SLIDESHOW (< 1024px) ================= -->
     <div class="block lg:hidden w-full sm:max-w-md md:max-w-xl mx-auto aspect-square rounded-[2rem] overflow-hidden shadow-2xl relative mb-4">
@@ -322,7 +322,7 @@ onMounted(() => {
     <!-- ================= DESKTOP STICKY SLIDESHOW (>= 1024px) ================= -->
     <div class="hidden lg:block w-[40%] relative">
       <!-- Sticky container tied to viewport height -->
-      <div class="sticky top-28 w-full aspect-square rounded-[2.5rem] overflow-hidden shadow-2xl">
+      <div class="sticky top-28 w-full aspect-square rounded-[2.5rem] overflow-hidden shadow-xl">
         <Swiper
           :modules="[Autoplay, EffectFade]"
           effect="fade"

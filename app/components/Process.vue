@@ -105,22 +105,22 @@ onMounted(() => {
     // 3. Hexagons (Slide down rapidly)
     .fromTo('.hex-node',
       { y: -30, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.06, duration: 0.3, ease: 'power2.out' },
+      { y: 0, opacity: 1, stagger: 0.06, duration: 0.2, ease: 'power2.out' },
       "-=0.3"
     )
 
     // 4. Icons (Fade + Zoom in from 0)
     .fromTo('.hex-icon',
       { scale: 0, opacity: 0 },
-      { scale: 1, opacity: 1, stagger: 0.06, duration: 0.3, ease: 'back.out(1.5)' },
-      "-=0.3"
+      { scale: 1, opacity: 1, stagger: 0.06, duration: 0.2, ease: 'back.out(1.5)' },
+      "-=0.8"
     )
 
     // 5. Horizontal Arms (Desktop only)
     .fromTo('.horizontal-arm',
       { scaleX: 0, opacity: 0 },
       { scaleX: 1, opacity: 1, stagger: 0.06, duration: 0.2, ease: 'power2.out' },
-      "-=0.3"
+      "-=0.8"
     )
 
     // 6. Data Cards (Slide down)
@@ -134,7 +134,7 @@ onMounted(() => {
     .fromTo('.card-text-elem',
       { y: -20, opacity: 0 },
       { y: 0, opacity: 1, stagger: 0.06, duration: 0.2, ease: 'power2.out' },
-      "-=1.5"
+      "-=1.6"
     )
 
   }, sectionRef.value)

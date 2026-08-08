@@ -11,24 +11,24 @@ const emit = defineEmits(['close'])
 // Unified main navigation
 const mainLinks = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/About' },
-  { name: 'Itineraries', path: '/Itineraries' },
-  { name: 'Services', path: '/Services' },
-  { name: 'Impact', path: '/Impact' },
-  { name: 'Blog', path: '/Blog' },
+  { name: 'About', path: '/about' },
+  { name: 'Itineraries', path: '/itineraries' },
+  { name: 'Services', path: '/services' },
+  { name: 'Impact', path: '/impact' },
+  { name: 'Blog', path: '/blog' },
 ]
 
 // Call to action boxes
 const ctaLinks = [
-  { name: 'Plan Your Journey', path: '/PlanYourJourney' },
-  { name: 'Contact', path: '/Contact' }
+  { name: 'Plan Your Journey', path: '/planYourJourney' },
+  { name: 'Contact', path: '/contact' }
 ]
 
 // Footer utility links
 const footerLinks = [
-  { name: 'Frequently Asked Questions', path: '/FAQ' },
-  { name: 'Privacy Policy', path: '/Privacy' },
-  { name: 'Terms & Conditions', path: '/Terms' }
+  { name: 'Frequently Asked Questions', path: '/faq' },
+  { name: 'Privacy Policy', path: '/privacy' },
+  { name: 'Terms & Conditions', path: '/terms' }
 ]
 
 onMounted(() => {

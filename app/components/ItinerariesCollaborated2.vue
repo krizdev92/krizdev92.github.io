@@ -20,7 +20,7 @@ const itineraryColData = {
   },
   bottomCta: {
     text: 'Explore Collaborations',
-    url: '/itineraries',
+    url: '/itineraries/collaborated',
     icon: '/images/logoart.png',
   },
   categoryGroup: {
@@ -165,7 +165,7 @@ onMounted(() => {
       repeatDelay: 2,
       ease: 'power2.inOut'
     },
-    "-=0.2"
+    "-=0.7"
   )
 })
 </script>
@@ -260,7 +260,7 @@ onMounted(() => {
           v-if="itineraryColData.categoryGroup.items.length > 1"
           class="mobile-swipe-indicator sm:hidden absolute right-0 top-0 bottom-6 w-24 bg-gradient-to-l from-[#F9F8F6]/30 via-[#F9F8F6]/15 to-transparent pointer-events-none flex items-center justify-end pr-2 md:pr-4 opacity-0 z-20"
         >
-          <div class="w-8 h-8 rounded-full bg-[#703e19]/5 backdrop-blur-md flex items-center justify-center animate-swipe-hint shadow-sm border border-[#1A1A1A]/10">
+          <div class="w-8 h-8 rounded-full bg-[#f9f8f6]/50 backdrop-blur-md flex items-center justify-center animate-swipe-hint shadow-sm border border-[#1A1A1A]/10">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-[#703e19] ml-0.5">
               <path d="M9 18l6-6-6-6"></path>
             </svg>

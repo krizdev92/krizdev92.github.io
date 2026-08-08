@@ -120,14 +120,14 @@ onMounted(() => {
           <!-- Name & Details -->
           <h4 class="font-serif text-lg text-[#1A1A1A] font-medium leading-snug">{{ designer.name }}</h4>
           <span class="font-sans text-[11px] text-[#703e19] font-bold uppercase tracking-wider mt-1">{{ designer.role }}</span>
-          <span class="font-sans text-xs text-[#1A1A1A]/90 font-light mt-1">{{ designer.location }}</span>
+          <span class="font-sans text-xs text-[#1A1A1A]/90 font-light mt-1 mb-5">{{ designer.location }}</span>
 
           <!-- Underline Divider (Anchored to the very bottom of the top block) -->
-          <div class="w-8 h-[1px] bg-[#1A1A1A]/15 mt-5 mb-0"></div>
+          <!-- <div class="w-full h-[1px] bg-[#703e19]/15 mt-5 mb-0"></div> -->
         </div>
 
         <!-- Bottom Section (Slightly Darker Brown) -->
-        <div class="bg-[#703e19]/20 px-6 pt-5 pb-8 flex-grow flex flex-col text-center justify-start">
+        <div class="bg-[#703e19]/20 px-6 pt-5 pb-6 flex-grow flex flex-col text-center justify-start">
           <p class="font-sans text-sm text-[#1A1A1A] font-light leading-relaxed">
             {{ designer.intro }}
           </p>

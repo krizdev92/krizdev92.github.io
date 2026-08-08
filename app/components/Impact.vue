@@ -121,7 +121,7 @@ onMounted(() => {
       repeatDelay: 2,
       ease: 'power2.inOut'
     },
-    "-=0.2"
+    "-=1.8"
   )
 })
 </script>

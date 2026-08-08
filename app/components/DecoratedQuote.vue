@@ -49,7 +49,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section ref="sectionRef" class="w-full py-12 md:py-16 bg-[#F9F8F6] px-4 sm:px-6 md:px-16 lg:px-24 flex justify-center">
+  <section ref="sectionRef" class="w-full py-6 md:py-8 bg-[#F9F8F6] px-4 sm:px-6 md:px-16 lg:px-24 flex justify-center">
     
     <!-- Container with Light Brown Background (#EBE6DF) -->
     <div class="relative w-full max-w-7xl bg-[#EBE6DF] rounded-2xl md:rounded-[2rem] shadow-sm overflow-hidden flex min-h-[220px] md:min-h-[300px]">

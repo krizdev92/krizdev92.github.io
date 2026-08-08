@@ -47,9 +47,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <section ref="sectionRef" class="w-full bg-[#F9F8F6] px-6 sm:px-10 md:px-16 lg:px-24 py-4 md:py-6 flex justify-start">
-    <div class="w-full max-w-5xl text-left">
-      <p class="intro-para-elem font-sans text-sm md:text-base lg:text-[15px] indent-4 leading-[1.9] text-[#1A1A1A] font-light">
+  <section ref="sectionRef" class="w-full bg-[#F9F8F6] px-6 sm:px-10 md:px-16 lg:px-24 pt-8 md:pt-10 pb-4 md:pb-6 flex justify-left">
+    <div class="w-full max-w-6xl text-left">
+      <p class="intro-para-elem font-sans text-sm md:text-base lg:text-[15px] leading-[1.9] text-[#1A1A1A] font-light">
         {{ activeData.paragraph }}
       </p>
     </div>

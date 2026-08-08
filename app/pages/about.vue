@@ -1,13 +1,5 @@
 <script setup>
 import { computed } from 'vue'
-import HeroInner from '~/components/HeroInner.vue'
-import IntroInner from '~/components/IntroInner.vue'
-import AboutInnerText from '~/components/AboutInnerText.vue'
-import DecoratedQuote from '~/components/DecoratedQuote.vue'
-import AboutInnerCollaborated from '~/components/AboutInnerCollaborated.vue'
-import Testimonials2 from '~/components/Testimonials2.vue'
-import Community from '~/components/Community.vue'
-import Banner from '~/components/Banner.vue'
 
 const WP_GRAPHQL_ENDPOINT = 'http://travel-app-backend.local/graphql'
 
@@ -112,7 +104,7 @@ const aboutInnerTextData = computed(() => {
 
 // 4. Remaining Sections
 const quoteData = computed(() => data.value?.data?.page?.aboutFields?.quoteData || null)
-const collaboratedData = computed(() => parseJsonField(data.value?.data?.page?.aboutFields?.collaboratedDesignersJson))
+const designersData = computed(() => parseJsonField(data.value?.data?.page?.aboutFields?.collaboratedDesignersJson))
 
 // Banner Data
 const bannerData = computed(() => {
@@ -133,16 +125,19 @@ const bannerData = computed(() => {
     <HeroInner :hero-data="heroData" />
 
     <!-- 2. Intro Paragraph -->
-    <IntroInner :data="introData" />
+    <IntroInnerLeft :data="introData" />
 
     <!-- 3. The Consolidated 5-Section Core Content -->
     <AboutInnerText :data="aboutInnerTextData" />
+
+    <!-- 4. Awards -->
+    <Awards />
 
     <!-- 4. Decorated Quote -->
     <DecoratedQuote :data="quoteData" />
     
     <!-- 5. Collaborated Travel Designers -->
-    <AboutInnerCollaborated :data="collaboratedData" />
+    <AboutInnerDesigners :data="designersData" />
     
     <!-- 6. Testimonials Section -->
     <Testimonials2 />

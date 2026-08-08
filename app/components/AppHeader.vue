@@ -9,15 +9,15 @@ const isMenuOpen = ref(false)
 // Modular JSON-style routing for navigation links
 const leftLinks = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/About' },
-  { name: 'Itineraries', path: '/Itineraries' },
+  { name: 'About', path: '/about' },
+  { name: 'Itineraries', path: '/itineraries' },
 ]
 
 const rightLinks = [
-  { name: 'Services', path: '/Services' },
-  { name: 'Impact', path: '/Impact' },
+  { name: 'Services', path: '/services' },
+  { name: 'Impact', path: '/impact' },
   // { name: 'Testimonials', path: '/Testimonials' },
-  { name: 'Blog', path: '/Blog' },
+  { name: 'Blog', path: '/blog' },
   // { name: 'Community', path: '/Community' }
 ]
 

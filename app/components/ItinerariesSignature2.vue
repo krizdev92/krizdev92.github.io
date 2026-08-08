@@ -21,7 +21,7 @@ const itinerarySigData = {
   },
   bottomCta: {
     text: 'Explore Signature Journeys',
-    url: '/itineraries',
+    url: '/itineraries/signature',
     icon: '/images/logoart.png'
   },
   categoryGroup: {
@@ -166,7 +166,7 @@ onMounted(() => {
       repeatDelay: 2,
       ease: 'power2.inOut'
     },
-    "-=0.2"
+    "-=0.7"
   )
 })
 </script>
