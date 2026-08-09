@@ -14,9 +14,9 @@ const isLoaderFinished = useLoaderState()
 const sectionRef = ref(null)
 
 const defaultItineraries = [
-  { id: 'i1', title: 'The Malabar & Nilgiri Heritage Route', days: '11 Days', region: 'South India', img: '/images/home/itin-3.jpg', url: '/itineraries/malabar-heritage' },
-  { id: 'i2', title: 'Himalayan Snow Leopard Expedition', days: '14 Days', region: 'Spiti Valley', img: '/images/home/itin-1.jpg', url: '/itineraries/snow-leopard' },
-  { id: 'i3', title: 'Sacred Temples & Ancient Crafts', days: '9 Days', region: 'Tamil Nadu', img: '/images/home/stay-1.jpeg', url: '/itineraries/tamil-nadu' }
+  { id: 'i1', title: 'The Malabar & Nilgiri Heritage Route', days: '11 Days', region: 'South India', img: '/images/home/itin-3.jpg', url: '/' },
+  { id: 'i2', title: 'Himalayan Snow Leopard Expedition', days: '14 Days', region: 'Spiti Valley', img: '/images/home/itin-1.jpg', url: '/' },
+  { id: 'i3', title: 'Sacred Temples & Ancient Crafts', days: '9 Days', region: 'Tamil Nadu', img: '/images/home/stay-1.jpeg', url: '/' }
 ]
 
 const activeItems = computed(() => props.itineraries.length > 0 ? props.itineraries.slice(0, 3) : defaultItineraries)

@@ -11,6 +11,34 @@ const activeTywCategory = ref(null)
 const validTywCategories = ['nature', 'culture', 'stays', 'offbeat', 'wellness', 'bespoke']
 
 // ==========================================
+// 1. STRICT 404 VALIDATION & ROUTING STATE (Runs on Server & Client)
+// ==========================================
+const slug0 = route.params.slug ? route.params.slug[0] : null
+const slug1 = route.params.slug && route.params.slug.length > 1 ? route.params.slug[1] : null
+
+if (slug0) {
+  if (slug0 === 'signature') {
+    expandedSection.value = 'signature'
+  } else if (slug0 === 'collaborated') {
+    expandedSection.value = 'collaborated'
+  } else if (validTywCategories.includes(slug0)) {
+    // Direct access to a category (e.g., /itineraries/nature)
+    expandedSection.value = 'tyw'
+    activeTywCategory.value = slug0
+  } else if (slug0 === 'travelyourway') {
+    expandedSection.value = 'tyw'
+    activeTywCategory.value = validTywCategories.includes(slug1) ? slug1 : null
+  } else {
+    // FATAL 404: Kills the render if the slug doesn't match known patterns
+    throw createError({
+      statusCode: 404,
+      statusMessage: 'Itinerary or Category Not Found',
+      fatal: true
+    })
+  }
+}
+
+// ==========================================
 // CENTRAL SCROLL FUNCTION
 // ==========================================
 // Allows you to fine-tune the pixel offset to clear headers.
@@ -23,26 +51,9 @@ const scrollToSection = (elementId, yOffset = 0) => {
 }
 
 // ==========================================
-// 1. ROUTING & AUTO-EXPANSION LOGIC
+// AUTO-EXPANSION SCROLLING (Client-side only)
 // ==========================================
 onMounted(() => {
-  const slug0 = route.params.slug ? route.params.slug[0] : null
-  const slug1 = route.params.slug && route.params.slug.length > 1 ? route.params.slug[1] : null
-  
-  if (slug0 === 'signature') {
-    expandedSection.value = 'signature'
-  } else if (slug0 === 'collaborated') {
-    expandedSection.value = 'collaborated'
-  } else if (validTywCategories.includes(slug0)) {
-    // Direct access to a category (e.g., /itineraries/nature)
-    expandedSection.value = 'tyw'
-    activeTywCategory.value = slug0
-  } else if (slug0 === 'travelyourway') {
-    expandedSection.value = 'tyw'
-    // If slug1 is a valid category, set it; otherwise, leave null
-    activeTywCategory.value = validTywCategories.includes(slug1) ? slug1 : null
-  }
-
   if (expandedSection.value) {
     setTimeout(() => {
       let targetId = ''

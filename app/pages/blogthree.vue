@@ -55,9 +55,9 @@ const postData = {
 
 // Related Posts Payload
 const relatedPosts = [
-  { id: 'b2', title: 'The Silent Backwaters at Dawn', date: 'August 05, 2026', tags: ['#Photography', '#Kerala'], intro: 'Capturing the golden hour across the serene Vembanad lake.', img: '/images/home/itin-2.jpg', url: '/blog/backwaters-dawn' },
-  { id: 'b9', title: 'Into the Heart of Ranthambore', date: 'June 25, 2026', tags: ['#Wildlife', '#Tigers'], intro: 'A thrilling jeep safari through ancient ruins tracking tigers.', img: '/images/home/itin-3.jpg', url: '/blog/ranthambore-tigers' },
-  { id: 'b13', title: 'Trekking the Markha Valley', date: 'May 28, 2026', tags: ['#Adventure', '#Ladakh'], intro: 'A high-altitude journey crossing rugged mountain passes.', img: '/images/home/itin-1.jpg', url: '/blog/markha-trek' }
+  { id: 'b2', title: 'The Silent Backwaters at Dawn', date: 'August 05, 2026', tags: ['#Photography', '#Kerala'], intro: 'Capturing the golden hour across the serene Vembanad lake.', img: '/images/home/itin-2.jpg', url: '/' },
+  { id: 'b9', title: 'Into the Heart of Ranthambore', date: 'June 25, 2026', tags: ['#Wildlife', '#Tigers'], intro: 'A thrilling jeep safari through ancient ruins tracking tigers.', img: '/images/home/itin-3.jpg', url: '/' },
+  { id: 'b13', title: 'Trekking the Markha Valley', date: 'May 28, 2026', tags: ['#Adventure', '#Ladakh'], intro: 'A high-altitude journey crossing rugged mountain passes.', img: '/images/home/itin-1.jpg', url: '/' }
 ]
 
 const bannerData = {

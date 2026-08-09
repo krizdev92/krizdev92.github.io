@@ -33,9 +33,9 @@ const itineraryData = {
 }
 
 const relatedPosts = [
-  { id: 'b2', title: 'The Silent Backwaters at Dawn', date: 'August 05, 2026', tags: ['#Photography', '#Kerala'], intro: 'Capturing the golden hour across the serene Vembanad lake.', img: '/images/home/itin-2.jpg', url: '/blog/backwaters-dawn' },
-  { id: 'b10', title: 'Plantation Life in Munnar', date: 'June 18, 2026', tags: ['#Heritage', '#Tea'], intro: 'Discovering tea cultivation in the misty hills of the Western Ghats.', img: '/images/home/stay-2.jpeg', url: '/blog/munnar-plantations' },
-  { id: 'b14', title: 'The Spice Markets of Fort Kochi', date: 'May 20, 2026', tags: ['#Culinary', '#History'], intro: 'Tracing ancient maritime trade routes through scents of spice.', img: '/images/home/stay-1.jpeg', url: '/blog/kochi-spices' }
+  { id: 'b2', title: 'The Silent Backwaters at Dawn', date: 'August 05, 2026', tags: ['#Photography', '#Kerala'], intro: 'Capturing the golden hour across the serene Vembanad lake.', img: '/images/home/itin-2.jpg', url: '/' },
+  { id: 'b10', title: 'Plantation Life in Munnar', date: 'June 18, 2026', tags: ['#Heritage', '#Tea'], intro: 'Discovering tea cultivation in the misty hills of the Western Ghats.', img: '/images/home/stay-2.jpeg', url: '/' },
+  { id: 'b14', title: 'The Spice Markets of Fort Kochi', date: 'May 20, 2026', tags: ['#Culinary', '#History'], intro: 'Tracing ancient maritime trade routes through scents of spice.', img: '/images/home/stay-1.jpeg', url: '/' }
 ]
 
 const bannerData = {
