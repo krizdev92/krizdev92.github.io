@@ -49,7 +49,7 @@ onMounted(() => {
 <template>
   <section ref="sectionRef" class="w-full bg-[#F9F8F6] px-6 sm:px-10 md:px-16 lg:px-24 pt-8 md:pt-10 pb-4 md:pb-6 flex justify-left">
     <div class="w-full max-w-6xl text-left">
-      <p class="intro-para-elem font-sans text-sm md:text-base lg:text-[15px] leading-[1.9] text-[#1A1A1A] font-light">
+      <p class="intro-para-elem font-sans text-[15px] md:text-[17px] text-[#1A1A1A]/85 leading-[1.95] font-light first-letter:float-left first-letter:text-6xl first-letter:pr-3 first-letter:font-serif first-letter:text-[#703e19] first-letter:mt-1">
         {{ activeData.paragraph }}
       </p>
     </div>

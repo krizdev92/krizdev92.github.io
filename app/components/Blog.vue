@@ -24,7 +24,7 @@ const blogData = {
     tags: ['#MarineLife', '#Ocean', '#Nature'],
     intro: 'Sri Lanka is an island that is blessed with an eclectic mix of exotic beauty, culture and history that has made it the perfect place to discover the majestic blue whale in its natural habitat.',
     img: '/images/home/itin-1.jpg',
-    url: '/'
+    url: '/blogone'
   },
   standardPosts: [
     {
@@ -33,7 +33,7 @@ const blogData = {
       date: 'July 28, 2026',
       tags: ['#Wildlife', '#Sanctuaries', '#Safari'],
       img: '/images/home/itin-2.jpg',
-      url: '/'
+      url: '/blogtwo'
     },
     {
       id: 'post-2',
@@ -49,7 +49,7 @@ const blogData = {
       date: 'June 30, 2026',
       tags: ['#WaterSports', '#Surfing', '#Adventure'],
       img: '/images/home/stay-3.jpg',
-      url: '/'
+      url: '/itineraryone'
     },
     {
       id: 'post-4',
@@ -57,7 +57,7 @@ const blogData = {
       date: 'June 18, 2026',
       tags: ['#Ayurveda', '#Wellness', '#Healing'],
       img: '/images/home/stay-4.jpg',
-      url: '/'
+      url: '/itinerarytwo'
     }
   ],
   bottomCta: {
